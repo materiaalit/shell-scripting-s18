@@ -13,6 +13,8 @@ $brand-warning: $brand-mooc;
 $brand-success: #57b181;
 $brand-danger: #d9534f;
 
+$brand-learning-objectives: $brand-success;
+
 $state-info-text: darken($brand-primary, 10%);
 $state-info-bg: lighten($brand-primary, 30%);
 $state-info-border: lighten($brand-primary, 20%);

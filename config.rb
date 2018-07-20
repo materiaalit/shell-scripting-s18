@@ -81,4 +81,4 @@ configure :build do
   end
 end
 
-set :github_url, 'https://github.com/materiaalit/ohjelmointi-18'
+set :github_url, 'https://github.com/materiaalit/ohjelmointi-s18'

@@ -2,9 +2,72 @@
   title: Osa 8
   exercise_page: true
   quiz_page: true
-  published: true
+  published: false
 ---
 
+
+<% partial 'partials/material_heading' do %>
+  Olio-ohjelmoinnin periaatteet
+<% end %>
+
+<p>
+  Olio-ohjelmointiin kuuluu oleellisesti kolme periaatetta: abstrahointi, kapselointi ja perintä. Käsittelemme periaatteet tässä lyhyesti; perintään tutustutaan tarkemmin ohjelmoinnin jatkokurssille.
+</p>
+
+
+<% partial 'partials/material_sub_sub_heading' do %>
+  Abstrahointi
+<% end %>
+
+<p>
+  Abstrahoinnin tavoitteena on ongelma-alueen käsitteellistäminen. Ohjelmoija pyrkii nimeämään ongelma-alueen käsitteitä kuvaavat luokat, oliot, metodit ja muuttujat mahdollisimman hyvin, jolloin muut näitä käyttävät ohjelmoijat ymmärtävät mistä kussakin on kyse. 
+</p>
+
+<p>
+  Käytännössä kyse on siis prosessista, missä ongelma-alueesta tunnistetaan ja eristetään oleellisimmat piirteet, joiden perusteella niistä luodaan ohjelmaan toiminnallisuutta. Samalla pyritään tilanteeseen, missä ongelma-alueesta on poimittu vain ne käsitteet, jotka ovat oleellisia käsiteltävän ongelman ratkaisun kannalta.
+</p>
+
+<p>
+  <em>
+    Otetaan analogia tosielämästä ja puhutaan käsitteestä auto. Jokainen tietää mistä autossa on kyse ja mihin sitä käytetään. Moni pystyisi myös piirtämään auton pyydettäessä. Käsite auto kuitenkin piilottaa paljon pienempiä osia: autossa on esimerkiksi renkaat, runko, moottori, istuimia, ... Kukin näistä käsitteistä on myös oma abstraktionsa. Esimerkiksi rengas piilottaa myös pienempiä osia -- renkaalla on vanne, ulkokumi, sisäkumi, jnejne.
+  </em>
+</p>
+
+<p>
+  Abstrahoinnista on ohjelmoijalle useita etuja. Se helpottaa asioista puhumista ja sitä kautta niiden käsittelyä. Se helpottaa ohjelmointia -- esimerkiksi käyttämämme apukirjastot kuten Scanner ovat toisten tekemiä valmiita abstraktioita ohjelmointiin liittyvistä tyypillisistä ongelmista. Se myös helpottaa omaa ohjelmointiamme: aivan kuten auto koostuu useammasta pienemmästä osasta, voimme koostaa ohjelmamme useammasta abstraktiosta ja luoda tätä kautta uusia abstraktioita.
+</p>
+
+
+<% partial 'partials/material_sub_sub_heading' do %>
+  Kapselointi
+<% end %>
+
+<p>
+  Kapseloinissa on kyse toteutuksen piilottamisesta julkisen rajapinnan taakse. Käytännössä olio-ohjelmoinissa kyse on muuttujien ja metodien konkreettisen toiminnallisuuden piilottamisesta olion "sisään". Olion käyttöön tarvittavat metodit (ml. konstruktorit) -- eli rajapinta -- ovat käyttäjän nähtävissä, mutta käyttäjä ei pääse käsiksi olion sisäiseen toteutukseen.
+</p>
+
+<p>
+  Tällöin toiset oliot voivat kutsua olion metodeja ilman, että niiden tarvitsee tietää kutsuttavan olion sisäisestä tilasta tai metodien konkreettisesta toteutuksesta. Tällöin kukin olio on myös itsenäinen, eikä niiden sisäinen tila ole riippuvainen toisten olioiden sisäisestä tilasta.
+</p>
+
+
+<% partial 'partials/material_sub_sub_heading' do %>
+  Perintä
+<% end %>
+
+<p>
+  Olio-ohjelmoinnissa on mahdollista luoda luokkia, jotka perivät toisen luokan ominaisuuksia (eli oliomuuttujat ja metodit). Tällöin luokasta tehdyt oliot ovat samalla myös perityn luokan ilmentymiä, jolloin oliot voivat esiintyä useampina erilaisina olioina käyttötarpeesta riippuen.
+</p>
+
+<p>
+  <em>
+    Palaamme perintään ohjelmoinnin jatkokurssilla...
+  </em>
+</p>
+
+
+
+---
 
 
 <% partial 'partials/material_heading' do %>

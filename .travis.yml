@@ -28,6 +28,3 @@ after_success:
 - git commit -m "$COMMIT_MESSAGE"
 - git push "https://hnbot:$GITHUB_API_KEY@github.com/materiaalit/ohjelmointi-s18.git"
   gh-pages:gh-pages 2>&1 | sed "s/$GITHUB_API_KEY/<confidential>/g"
-env:
-  global:
-    secure: AIITYjFeBnXB0pDZUciigpLmihx4zMhwQG60evqXPgebw+L0jSSP9CdgrKDrhkJgNgL5GvvcTHOYLCmph4ePTPalzkkCne73D6cO9Ux3V9kZcMg7nIqkpnpk/KtXM6ZaWa06WCpxZx1pjahHV/zrn8kPgYTzDGVHIrRtkFLnDjt24Rt/lJny7y8YyNnVX7rbTPsaFqgVPoiUvFMJbf8/PnemIU14tcmxUQyN5L3YKK+brBYNCLf+fWcSCMKjRn97uFzuZNf8RJWZKZ9WceoGUKXHjdnqqlijQfZ6hVA9sFJKyXns0G+b8J7zevPmSAbcY9X2MOrwbmgPN8yP9VPkx4NDFVjwJFdm2cDBQzJNECzaByZwgWkbaFKC+RoQKY77CaSpzWkBsEsyyeqmkQPPOzOOxsn9IcqGNdWTYZRH/FFDJ1FFyQtx/aK1XQ8Yb4DDjSavy1gRwhIm9PxDR76AcANbdJ7i1yRER5At3n8++j3R63X45+bb0t92yuKlat+32zkGmnUbOGiaq3bzUaX6PCva6YQYfndT3/MFwzt2gkKKQIXv1mGsr3+lhV4FHP5gA8BCZ2fReeV/ujcEkS9ZcFnDwtfBFIL49197cFXW/wz1bnee1GLs260kfvPNtjHI9wKVL2b7OlIOaMQ8svHKVpO5csz8nwhEYeQfxabBsQ4=

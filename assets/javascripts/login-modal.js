@@ -21,7 +21,7 @@ class LoginModal {
 
     if(client.getUser()) {
       this.afterLogin();
-    } else if(window.location.pathname !== '/' && window.location.pathname !== '/ohjelmointi-18/') {
+    } else if(window.location.pathname !== '/' && window.location.pathname !== '/ohjelmointi-s18/') {
       this.loginModalNode.modal('show');
     }
 

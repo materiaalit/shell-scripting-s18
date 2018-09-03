@@ -11,6 +11,13 @@
   <div class="collapse">
     <div class="exercise__body">
       <%= yield %>
+
+      <% if defined? model_solution %>
+        <hr/>
+
+        Tehtävään on olemassa esimerkkiratkaisu <a href="https://tmc.mooc.fi/" target="_blank" rel="noopener">Test My Code</a> -järjestelmässä. Esimerkkiratkaisua voi käyttää oman oppimisen tukena, ja se on tarkasteltavissa jo ennen kuin olet saanut tehtävän valmiiksi. Esimerkkiratkaisuun pääset käsiksi <a href="https://tmc.mooc.fi/exercises/<%= model_solution %>/solution" target="_blank" rel="noopener">täältä</a>. Huomaathan, että tehtävän voi ratkaista monella tapaa, ja tässä annettu esimerkkiratkaisu on näistä vain yksi.
+
+      <% end %>
     </div>
   </div>
 </div>

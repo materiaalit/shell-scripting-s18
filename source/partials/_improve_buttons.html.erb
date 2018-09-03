@@ -4,10 +4,10 @@
     Ilmoita virhe
   <% end %>
   <% link_to "edit_page.html?path=#{URI.escape(current_page.path)}", target: "_blank", rel: "noopener", class: "btn btn-primary" do %>
-    <i class="fa fa-pencil" aria-hidden="true"></i>
+    <i class="fa fa-pencil-alt" aria-hidden="true"></i>
     Muokkaa sivua
   <% end %>
   <a href="<%= config[:github_url] %>" class="footer__github-link" target="_blank" rel="noopener">
-    <i class="fa fa-github"></i>
+    <i class="fab fa-github"></i>
   </a>
 </div>

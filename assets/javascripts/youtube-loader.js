@@ -78,6 +78,5 @@ function logAction(action, player) {
     happened_at_milliseconds: happenedAt,
     playback_speed: playBackRate,
   }
-  console.log("Player state changed", JSON.stringify(snapshot, null, 2));
   analytics.saveAction(snapshot);
 }

@@ -13,6 +13,8 @@ import TableOfContents from './table-of-contents';
 import LoginModal from './login-modal';
 import Navigation from './navigation';
 
+import './youtube-loader';
+
 function loginReset() {
   if (!store.get('tmc.loginReset')) {
     store.remove('tmc.user');

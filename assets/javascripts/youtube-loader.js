@@ -15,6 +15,9 @@ window.loadYoutube = function() {
         events: {
           onStateChange: onPlayerStateChange,
           onPlaybackRateChange
+        },
+        playerVars: {
+          modestbranding: true
         }
       });
       newPlayer.___youtube_identifier = id;

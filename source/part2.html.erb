@@ -45,7 +45,7 @@
 <% end %>
 
 <p>
-  Ratkaisumalli käyttäjältä lukemista vaativiin tehtäväntoihin on suoraviivainen. Mikäli ohjelmassa halutaan lukea käyttäjältä syötettä, tulee ohjelmaan luoda syötteen lukemiseen käytettävä Scanner-apuväline. Scanner-apuväline luodaan pääohjelman (eli lauseen <code>public static void main(String[] args) {</code>) jälkeiselle riville. Scanner-apuvälineen käyttö vaatii, että ohjelman määrittelyä (<code>public class</code>) edeltävillä riveillä on lause <code>import java.util.Scanner;</code>, joka tuo Scanner-apuvälineen ohjelman tietoon.
+  Ratkaisumalli käyttäjältä lukemista vaativiin ohjelmointiongelmiin on suoraviivainen. Mikäli ohjelmassa halutaan lukea käyttäjältä syötettä, tulee ohjelmaan luoda syötteen lukemiseen käytettävä Scanner-apuväline. Scanner-apuväline luodaan pääohjelman (eli lauseen <code>public static void main(String[] args) {</code>) jälkeiselle riville. Scanner-apuvälineen käyttö vaatii, että ohjelman määrittelyä (<code>public class</code>) edeltävillä riveillä on lause <code>import java.util.Scanner;</code>, joka tuo Scanner-apuvälineen ohjelman tietoon.
 </p>
 
 
@@ -87,12 +87,12 @@
     Selvitä tehtävä laskuoperaatio ja luo laskuoperaation tulokselle muuttuja. Tee ohjelman syötteiden perusteella lasku, jonka arvo asetetaan laskuoperaation tulokselle varattuun muuttujaan. Myös laskuoperaation tuloksen tyypin tunnistaa ongelma-alueen kuvauksesta.
   </li>
   <li>
-    Kun lasku on laskettu, tee jotain laskun tuloksella. Tämä voi olla esimerkiksi laskuoperaation tuloksen tulostaminen. 
+    Kun lasku on laskettu, tee jotain laskun tuloksella. Tämä voi olla esimerkiksi laskuoperaation tuloksen tulostaminen, tai vaikkapa keskiarvon laskemisen yhteydessä lukujen summan jakamista lukujen määrällä.
   </li>
 </ol>
 
 <p>
-  Esimerkiksi tehtävän <em>Tee ohjelma, jonka avulla voidaan laskea kahden kokonaisluvun summa.</em> ratkaisumalli on seuraava.
+  Esimerkiksi ongelman <em>Tee ohjelma, jonka avulla voidaan laskea kahden kokonaisluvun summa.</em> ratkaisumalli on seuraava.
 </p>
 
 
@@ -142,7 +142,7 @@ System.out.println("Lukujen " + eka + " ja " + toka + " summa on " + summa);
 <% end %>
 
 <p>
-  Edellä olevassa esimerkissä ohjelma on toteutettu niin, että muuttujat määritellään ensin ja niihin luetaan arvot vasta tämän jälkeen. 
+  Edellä olevassa esimerkissä ohjelma on toteutettu niin, että muuttujat määritellään ensin ja niihin luetaan arvot vasta tämän jälkeen. Muuttujien määrittelyn sekä niiden arvojen lukemisen voi myös yhdistää.
 </p>
 
 <% partial 'partials/code_highlight' do %>
@@ -3048,11 +3048,6 @@ public static int virheellinenMetodi() {
 <% end %>
 
 <p>
-  TODO: quiz, mitä ohjelma tulostaa kun syötteenä... -- parametrillinen metodi, jossa return
-</p>
-
-
-<p>
   Palautettavan arvon ei tarvitse olla täysin ennalta määritelty, vaan se voidaan laskea. Metodista arvon palauttavalle return-komennolle voidaan antaa myös lauseke, joka evaluoituu ennen kuin arvo palautetaan.
 </p>
 
@@ -3748,7 +3743,13 @@ public static void main(String[] args) {
 
 
 <% partial 'partials/general_callout', locals: { name: 'Suunnittele oma tehtävä: Ehtolause' } do %>
-  Tee tehtävä, jonka tarkoitus on laittaa opiskelija koodaamaan ohjelma, joka lukee käyttäjältä kokonaislukusyötteen, tarkastelee sitä ehtolauseen avulla ja tulostaa merkkijonon. Anna testejä vasten syöte-esimerkki ja ohjelman tuloste tuolla syötteellä.
+  <p>
+    Tee tehtävä, jonka tarkoitus on laittaa opiskelija koodaamaan ohjelma, joka lukee käyttäjältä kokonaislukusyötteen, tarkastelee sitä ehtolauseen avulla ja tulostaa merkkijonon. Anna testejä vasten syöte-esimerkki ja ohjelman tuloste tuolla syötteellä.
+  </p>
+
+  <p>
+    Tehtävien luomistehtävät vastaavat kurssin pisteytyksessä ohjelmointitehtävää.
+  </p>
 <% end %>
 
 <div class='crowdsorcerer-widget' data-assignment='5'></div> 

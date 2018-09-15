@@ -6,6 +6,127 @@
 ---
 
 
+<p>
+  TODO: musiikin soittamista?
+</p>
+
+---
+
+
+<p>
+Miksi vain hetkellisesti? Tieto on tietokoneen muistissa, josta se katoaa kun ohjelma sammutetaan. Tiedon tallentaminen pidemmäksi aikaa vaatii pitkittäismuistia, eli kovalevyä. Tällä kurssilla tutustutaan mm. tiedostoon kirjoittamiseen ja tiedoston lukemiseen. Muita tallennustapoja tarkastellaan muunmuassa kurssilla Tietokantojen perusteet.
+</p>
+
+<% partial 'partials/material_heading' do %>
+  Merkkijonojen käsittely
+<% end %>
+
+- charat
+- indexOf
+- substring
+
+- split -> taulukko
+
+
+--- 
+
+
+
+<% partial 'partials/material_sub_heading' do %>
+  Merkkijonon... metodit?
+<% end %>
+
+<p>
+  Merkkijonot poikkeavat luonteeltaan hieman esimerkiksi kokonaisluvuista. Kokonaisluvut ovat "pelkkiä arvoja" -- niiden avulla voi tehdä laskutoimituksia ja niiden arvon voi tulostaa:
+</p>
+
+<% partial 'partials/code_highlight' do %>
+int x = 1;
+int y = 3;
+
+y = 3 * x + 2;
+
+System.out.println("y:n arvo nyt: " + y);
+<% end %>
+
+<% partial 'partials/sample_output' do %>
+y:n arvo nyt: 5
+<% end %>
+
+<p>
+  Merkkijonot taas ovat hieman "älykkäämpiä" ja tietävät esimerkiksi pituutensa:
+</p>
+
+<% partial 'partials/code_highlight' do %>
+String sana1 = "Ohjelmointi";
+String sana2 = "Java";
+
+System.out.println("merkkijonon " + sana1 + " pituus: " + sana1.length());
+System.out.println("merkkijonon " + sana2 + " pituus: " + sana2.length());
+<% end %>
+
+<p>
+  Tulostuu:
+</p>
+
+<% partial 'partials/sample_output' do %>
+merkkijonon Ohjelmointi pituus on 11
+merkkijonon Java pituus on 4
+<% end %>
+
+<p>
+  Pituus saadaan selville kutsumalla merkkijonon metodia <code>length()</code>. Merkkijonoilla on joukko muitakin metodeja. Kokonaisluvuilla eli <code>int</code>:eillä ei ole metodeja ollenkaan, ne eivät itsessään "osaa" mitään. Mistä tässä oikein on kyse?
+</p>
+
+
+<% partial 'partials/material_sub_heading' do %>
+  Olioihin liittyy sekä metodeja että arvoja
+<% end %>
+
+<p>
+  Merkkijonot ovat olioita, joihin liittyy sekä merkkijonon teksti että metodeja, joilla tekstiä voi käsitellä. Termi <strong>olio</strong> tarkoittaa tietynlaista muuttujaa. Jatkossa tulemme näkemään hyvin paljon muitakin olioita kuin merkkijonoja.
+</p>
+
+<p>
+  Olion metodia kutsutaan lisäämällä muuttujan nimen perään piste ja metodin nimi. Näiden lisäksi tulee sulut sekä mahdolliset parametrit:
+</p>
+
+<% partial 'partials/code_highlight' do %>
+  String sana1 = "Ohjelmointi";
+  String sana2 = "Java";
+
+  sana1.length();    // kutsutaan merkkijono-olion sana1 metodia length()
+  sana2.length();    // kutsutaan merkkijono-olion sana2 metodia length()
+<% end %>
+
+<p>
+  Metodikutsu kohdistuu nimenomaan siihen olioon, mille metodia kutsutaan. Yllä kutsumme ensin <code>sana1</code>-nimisen merkkijonon <code>length()</code>-metodia, sitten merkkijonon <code>sana2</code> metodia <code>length()</code>.</p>
+
+<p>
+  Vanha tuttumme <code>lukija</code> on myös olio:
+</p>
+
+<% partial 'partials/code_highlight' do %>
+Scanner lukija = new Scanner(System.in);
+<% end %>
+
+<p>
+  Lukijat ja merkkijonot ovat molemmat oliota, mutta ne ovat kuitenkin varsin erilaisia. Lukijoilla on mm. metodi <code>nextLine()</code> jota merkkijonoilla ei ole. Javassa oliot "synnytetään" eli luodaan melkein aina komennolla <code>new</code>, merkkijonot muodostavat tässä suhteessa poikkeuksen! -- Merkkijonoja voi luoda kahdella tavalla:
+</p>
+
+<% partial 'partials/code_highlight' do %>
+String banaani = new String("Banaani");
+String porkkana = "porkkana";
+<% end %>
+
+<p>
+  Kumpikin ylläolevista riveistä luo uuden merkkijono-olion. Merkkijonojen luonnissa <code>new</code>-komentoa käytetään kuitenkin hyvin harvoin, sillä Java-ohjelmointikielen toteuttajat ovat tehneet merkkijonojen luomiseen lyhyemmän (ei new-komentoa tarvitsevan) tavan.
+</p>
+
+<p>
+  Olion "tyypistä" puhuttaessa puhutaan usein <em>luokista</em>. Merkkijonojen luokka on <code>String</code>, lukijoiden luokka taas on <code>Scanner</code>. Opimme jatkossa luokista ja olioista paljon lisää.
+</p>
+
 
 <% partial 'partials/material_heading' do %>
   Tiedon lukeminen tiedostosta

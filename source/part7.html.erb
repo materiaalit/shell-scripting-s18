@@ -26,6 +26,45 @@ hakeminen
 </p>
 
 
+<% partial 'partials/exercise', locals: { name: 'Round-robin' } do %>
+
+  <p>
+    Tietokoneella voi olla samaan aikaan käynnissä useita ohjelmia, mutta todellisuudessa kaikkien käynnissä olevien ohjelmien lähdekoodia ei suoriteta samaan aikaan. Tietokoneen käyttöjärjestelmä vaihtaa suoritettavaa ohjelmaa jatkuvasti, minkä kautta käyttäjälle tulee illuusio siitä, että ohjelmat olisivat samaan aikaan käynnissä.
+  </p>
+
+  <p>
+    <a href="https://en.wikipedia.org/wiki/Round-robin_scheduling" target="_blank" rel="noopener">Round-robin -algoritmia</a> käytetään tietokoneen ohjelmien aikatauluttamiseen.
+  </p>
+
+  <p>
+    Algoritmin toimintaperiaate on yksinkertainen. Ohjelmista luodaan jono, ja ensimmäisenä jonossa olevaa ohjelmaa suoritetaan hetki, jonka jälkeen suoritettavana ollut ohjelma siirretään jonon perälle. Tämän jälkeen seuraava jonossa ollut ohjelma -- nyt jonon ensimmäinen -- päätyy suoritettavaksi, jonka jälkeen se siirretään jonon perälle jne.
+  </p>
+
+  <p>
+    Tehtäväpohjassa on viisi lukua sisältävä taulukko sekä ohjelmarunko niiden käsittelyyn. Ohjelmarunko tuntee tällä hetkellä kaksi komentoa: "lopeta" lopettaa ohjelman suorituksen ja "tulosta" tulostaa taulukon arvot.
+  </p>
+
+  <p>
+    Lisää ohjelmaan komento "siirra", joka siirtää ensimmäisenä taulukossa olevan arvon taulukon perälle sekä kaikkia muita taulukon arvoja yhden paikan eteenpäin.
+  </p>
+
+  <% partial 'partials/sample_output' do %>
+    <font color="red">tulosta</font>
+    1 3 5 7 9
+    <font color="red">siirra</font>
+    <font color="red">tulosta</font>
+    3 5 7 9 1
+    <font color="red">siirra</font>
+    <font color="red">siirra</font>
+    <font color="red">tulosta</font>
+    7 9 1 3 5
+    <font color="red">lopeta</font>
+  <% end %>
+
+<% end %>
+
+
+
 <% partial 'partials/hint', locals: { name: 'Mikä ihmeen al-Khwarizmi -- tai algoritmi?' } do %>
 
   <p>

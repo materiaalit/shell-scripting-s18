@@ -14,6 +14,70 @@
 
 </p>
 
+
+<% partial 'partials/material_sub_heading' do %>
+  Metodit ja ohjelman nimentä
+<% end %>
+
+<p>
+  Tarkastellaan ohjelman nimentää ja selventämistä vielä metodien avulla. 
+</p>
+
+<p>
+  <em>
+    Vuosi on karkausvuosi, jos se on jaollinen 4:llä. Kuitenkin jos vuosi on jaollinen 100:lla, se on karkausvuosi vain silloin, kun se on jaollinen myös 400:lla.
+  </em>
+</p>
+
+
+
+<p>
+  TODO: muutama esimerkki eri ääripäistä -- yhdessä ohjelmassa ei ole lainkaan metodeja, toisessa ohjelma koostuu pelkistä metodeista.
+</p>
+
+<% partial 'partials/code_highlight' do %>
+  public static boolean jaollinen(int luku, int luvulla) {
+      return luku % luvulla == 0;
+
+      // tai 
+      if (luku % luvulla == 0) {
+        return true;
+      }
+
+      return false;
+  }
+<% end %>
+
+
+<% partial 'partials/code_highlight' do %>
+  public static boolean ei(boolean arvo) {
+      return !arvo;
+
+      // tai 
+      if (arvo == true) {
+        return false;
+      }
+
+      return true;
+
+      // tai
+      if (arvo) {
+        return false;
+      }
+
+      return true;
+  }
+<% end %>
+
+
+<% partial 'partials/code_highlight' do %>
+  if(ei(jaollinen(luku, 400))) {
+    // heh
+  }
+<% end %>
+
+
+
 <pre>
 $/Osa08_01.SamaPaivays$ tree
 .

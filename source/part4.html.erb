@@ -2,7 +2,7 @@
   title: Osa 4
   exercise_page: true
   quiz_page: true
-  published: false
+  published: true
   load_youtube: true
 ---
 
@@ -71,7 +71,7 @@ while (true) {
 </p>
 
 
-<% partial 'partials/exercise', locals: { name: 'Merkkijonojen lukumäärä' } do %>
+<% partial 'partials/exercise', locals: { name: 'Merkkijonojen lukumäärä', model_solution: '51464' } do %>
 
   <p>
     Kirjoita ohjelma, joka lukee käyttäjältä merkkijonoja kunnes käyttäjä syöttää merkkijonon "loppu". Tämän jälkeen ohjelma tulostaa luettujen merkkijonojen lukumäärän. Merkkijonoa "loppu" ei tule huomioida syötettyjen merkkijonojen lukumäärän laskemisessa. Alla muutamia esimerkkejä ohjelman toiminnasta.
@@ -124,7 +124,7 @@ while (true) {
 
 
 
-<% partial 'partials/exercise', locals: { name: 'Kuutiot' } do %>
+<% partial 'partials/exercise', locals: { name: 'Kuutiot', model_solution: '51465' } do %>
 
   <p>
     Kirjoita ohjelma, joka lukee merkkijonoja käyttäjältä kunnes käyttäjä syöttää merkkijonon "loppu". Mikäli syöte ei ole "loppu", ohjelman tulee käsitellä syöte lukuna ja tulostaa syötetyn luvun kuutio (eli luku * luku * luku). Alla on muutamia tulostusesimerkkejä
@@ -227,7 +227,7 @@ while (true) {
 </p>
 
 
-<% partial 'partials/exercise', locals: { name: 'Tiedoston tulostaminen' } do %>
+<% partial 'partials/exercise', locals: { name: 'Tiedoston tulostaminen', model_solution: '51467' } do %>
 
   <p>
     Kirjoita ohjelma, joka tulostaa tiedoston nimeltä "data.txt" sisällön siten, että kukin tiedoston rivi tulee tulostuksessa omalle rivilleen.
@@ -254,7 +254,7 @@ while (true) {
 <% end %>
 
 
-<% partial 'partials/exercise', locals: { name: 'Kysytyn tiedoston tulostaminen' } do %>
+<% partial 'partials/exercise', locals: { name: 'Kysytyn tiedoston tulostaminen', model_solution: '51468' } do %>
 
   <p>
     Kirjoita ohjelma, joka kysyy käyttäjältä merkkijonoa ja tulostaa tämän jälkeen käyttäjän syöttämän nimisen tiedoston sisällön. Voit olettaa, että käyttäjä syöttää tiedoston, joka löytyy ohjelmasta.
@@ -308,7 +308,7 @@ try (Scanner tiedostonLukija = new Scanner(new File("tiedosto.txt"))) {
 <% end %>
 
 
-<% partial 'partials/exercise', locals: { name: 'Vieraslista tiedostosta' } do %>
+<% partial 'partials/exercise', locals: { name: 'Vieraslista tiedostosta', model_solution: '51469' } do %>
 
 
   <p>
@@ -365,7 +365,7 @@ alicia
 <% end %>
 
 
-<% partial 'partials/exercise', locals: { name: 'Löytyykö tiedostosta?' } do %>
+<% partial 'partials/exercise', locals: { name: 'Löytyykö tiedostosta?', model_solution: '51470' } do %>
 
   <p>
     Tehtäväpohjassa tulee kaksi tekstitiedostoa: <code>nimet.txt</code> ja <code>toiset-nimet.txt</code>. Kirjoita ohjelma, joka kysyy ensin käyttäjältä luettavan tiedoston nimeä, jonka jälkeen käyttäjältä kysytään etsittävää merkkijonoa. Tämän jälkeen ohjelma lukee tiedoston ja etsii tiedostosta haluttua merkkijonoa.
@@ -403,7 +403,7 @@ alicia
 
 
 
-<% partial 'partials/exercise', locals: { name: 'Mittaukset tiedostosta' } do %>
+<% partial 'partials/exercise', locals: { name: 'Mittaukset tiedostosta', model_solution: '51471' } do %>
 
   <p>
     Toteuta ohjelma, joka lukee käyttäjältä tiedoston nimen sekä hyväksyttävien lukujen ala- ja ylärajan. Tämän jälkeen ohjelma lukee tiedoston sisältämät luvut (jokainen luku on omalla rivillään) ja ottaa huomioon vain ne luvut, jotka ovat annetulla lukuvälillä. Lopulta ohjelma tulostaa annetulla lukuvälillä olleiden lukujen lukumäärän.
@@ -593,7 +593,7 @@ try (Scanner tiedostonLukija = new Scanner(new File("henkilot.csv"))) {
 
 
 
-<% partial 'partials/exercise', locals: { name: 'Nuorin' } do %>
+<% partial 'partials/exercise', locals: { name: 'Nuorin', model_solution: '51472' } do %>
 
   <p>
     Kirjoita ohjelma, joka lukee käyttäjältä henkilöiden nimiä ja ikiä. Kunkin henkilön nimi ja ikä syötetään samalla rivillä. Nimi ja ikä on pilkulla erotettu. Kun käyttäjä syöttää merkkijonon "loppu", lukeminen lopetetaan. Tämän jälkeen ohjelma tulostaa nuorimman henkilön nimen. Voit olettaa, että nuorin henkilö on yksikäsitteinen, eli syötteessä ei ole useampia saman ikäisiä (nuorimpia) henkilöitä.
@@ -615,7 +615,7 @@ try (Scanner tiedostonLukija = new Scanner(new File("henkilot.csv"))) {
 <% end %>
 
 
-<% partial 'partials/exercise', locals: { name: 'Vanhin tiedostosta' } do %>
+<% partial 'partials/exercise', locals: { name: 'Vanhin tiedostosta', model_solution: '51473' } do %>
 
   <p>
     Tässä tehtävässä käsitellään CSV-muodossa tallennettuja tiedostoja, jotka sisältävät riveittän pilkuilla eroteltuna nimiä ja ikiä. Tiedoston muoto on esimerkiksi seuraava:
@@ -762,7 +762,7 @@ aamu,1
 <% end %>
 
 
-<% partial 'partials/exercise', locals: { name: 'Ensimmäinen tilisi' } do %>
+<% partial 'partials/exercise', locals: { name: 'Ensimmäinen tilisi', model_solution: '51474' } do %>
 
   <p>
     Tehtäväpohjan mukana tulee valmis luokka <code>Tili</code>. Luokan <code>Tili</code> olio esittää pankkitiliä, jolla on saldo (eli jossa on jokin määrä rahaa). Tilejä käytetään näin:
@@ -793,7 +793,7 @@ aamu,1
 <% end %>
 
 
-<% partial 'partials/exercise', locals: { name: 'Ensimmäinen tilisiirtosi' } do %>
+<% partial 'partials/exercise', locals: { name: 'Ensimmäinen tilisiirtosi', model_solution: '51475' } do %>
 
   <p>
     Tässäkin tehtävässä on käytössä edellisessä tehtävässä mukana ollut luokka <code>Tili</code>.
@@ -928,7 +928,7 @@ aamu,1
 </p>
 
 
-<% partial 'partials/exercise', locals: { name: 'Koiran ominaisuudet' } do %>
+<% partial 'partials/exercise', locals: { name: 'Koiran ominaisuudet', model_solution: '51476' } do %>
 
   <p>
     Uuden luokan saa lisättyä NetBeansissa seuraavasti: Ruudun vasemmalla reunalla on projektilistaus (Projects). Paina projektin nimen kohdalla hiiren oikeaa nappia. Valitse avautuvasta valikosta <em>New</em> ja <em>Java Class</em>. Anna luokan nimeksi (Class Name) <code>Koira</code>.
@@ -1007,7 +1007,7 @@ aamu,1
 </p>
 
 
-<% partial 'partials/exercise', locals: { name: 'Huone' } do %>
+<% partial 'partials/exercise', locals: { name: 'Huone', model_solution: '51477' } do %>
 
   <p>
     Uuden luokan saa lisättyä seuraavasti: Ruudun vasemmalla reunalla on projektilistaus. Paina projektin nimen kohdalla hiiren oikeaa nappia. Valitse avautuvasta valikosta <em>New</em> ja <em>Java Class</em>. Jos haluat että luokan nimi on Huone, aseta luokan nimeksi (Class Name) <code>Huone</code>.
@@ -1167,7 +1167,7 @@ aamu,1
 </p>
 
 
-<% partial 'partials/exercise', locals: { name: 'Pilli' } do %>
+<% partial 'partials/exercise', locals: { name: 'Pilli', model_solution: '51478' } do %>
 
   <p>
     Luo luokka nimeltä <code>Pilli</code>. Pillillä on oliomuuttujina <code>private String aani</code>. Luo tämän jälkeen konstruktori <code>public Pilli(String pillinAani)</code>, minkä avulla luodaan uusi pilli, jolle annetaan ääni.
@@ -1199,7 +1199,7 @@ aamu,1
 <% end %>
 
 
-<% partial 'partials/exercise', locals: { name: 'Ovi' } do %>
+<% partial 'partials/exercise', locals: { name: 'Ovi', model_solution: '51479' } do %>
 
   <p>
     Luo luokka nimeltä <code>Ovi</code>. Ovella ei ole oliomuuttujia. Luo sille parametriton konstruktori (tai käytä oletuskonstruktoria).  Luo tämän jälkeen ovelle metodi <code>public void koputa()</code>, jota kutsuttaessa tulostuu viesti "Who's there?".
@@ -1224,7 +1224,7 @@ aamu,1
 <% end %>
 
 
-<% partial 'partials/exercise', locals: { name: 'Tuote' } do %>
+<% partial 'partials/exercise', locals: { name: 'Tuote', model_solution: '51480' } do %>
 
   <p>
     Luo luokka <code>Tuote</code> joka esittää kaupan tuotetta jolla on hinta, lukumäärä ja nimi.
@@ -1344,7 +1344,7 @@ Banaani, hinta 1.1, 13 kpl
 <% end %>
 
 
-<% partial 'partials/exercise', locals: { name: 'Vähenevä laskuri (4 osaa)' } do %>
+<% partial 'partials/exercise', locals: { name: 'Vähenevä laskuri (4 osaa)', model_solution: '51481' } do %>
 
   <p>
     Tässä tehtävässä on useampi osa. Jokainen osa vastaa yhtä tehtäväpistettä.
@@ -1535,7 +1535,7 @@ Banaani, hinta 1.1, 13 kpl
 
 <% end %>
 
-<% partial 'partials/exercise', locals: { name: 'Velka' } do %>
+<% partial 'partials/exercise', locals: { name: 'Velka', model_solution: '51482' } do %>
 
   <p>
     Luo luokka <code>Velka</code>, jolla on double-tyyppiset oliomuuttujat <code>saldo</code> ja <code>korkokerroin</code>. Saldo ja korkokerroin annetaan konstruktorin parametrina <code>public Velka(double saldoAlussa, double korkokerroinAlussa)</code>.
@@ -1765,7 +1765,7 @@ Arvosanaksi tuli 10
 
 <%= partial 'partials/quiz', locals: { id: '5a57bcce574f0b000439a331' } %>
 
-<% partial 'partials/exercise', locals: { name: 'Henkilö' } do %>
+<% partial 'partials/exercise', locals: { name: 'Henkilo', model_solution: '51483' } do %>
   
   <p>
     Luo luokka Henkilo (ei öötä!). Luokan Henkilo tulee sisältää seuraavan luokkakaavion määrittelemät ominaisuudet.
@@ -1824,7 +1824,7 @@ Arvosanaksi tuli 10
 <% end %>
 
 
-<% partial 'partials/exercise', locals: { name: 'Musiikkikappale' } do %>
+<% partial 'partials/exercise', locals: { name: 'Musiikkikappale', model_solution: '51484' } do %>
 
   <p>
     Luo luokka nimeltä <code>Musiikkikappale</code>. Musiikkikappaleella on oliomuuttujat <code>nimi</code> (merkkijono) ja <code>pituus</code> sekunteina (kokonaisluku). Molemmat asetetaan konstruktorissa <code>public Musiikkikappale(String kappaleenNimi, int kappaleenPituus)</code>. Lisää oliolle myös metodit <code>public String nimi()</code>, joka palauttaa kappaleen nimen, ja <code>public int pituus()</code>, joka palauttaa kappaleen pituuden.
@@ -1991,7 +1991,7 @@ Arvosanaksi tuli 10
 <% end %>
 
 
-<% partial 'partials/exercise', locals: { name: 'Elokuva' } do %>
+<% partial 'partials/exercise', locals: { name: 'Elokuva', model_solution: '51485' } do %>
   <p>
     Luo luokka Elokuva, jolla on oliomuuttujat <code>nimi</code> (String) ja <code>ikaraja</code> (int). Tee luokalle konstruktori <code>public Elokuva(String elokuvanNimi, int elokuvanIkaraja)</code> sekä metodit <code>public String nimi()</code> ja <code>public int ikaraja()</code>. Ensimmäinen palauttaa elokuvan nimen ja toinen elokuvan ikärajan.
   </p>
@@ -2105,7 +2105,7 @@ Arvosanaksi tuli 10
 
 <p>&nbsp;</p>
 
-<% partial 'partials/exercise', locals: { name: 'Agentti' } do %>
+<% partial 'partials/exercise', locals: { name: 'Agentti', model_solution: '51486' } do %>
 
   <p>
     Tehtäväpohjassa on määriteltynä luokka Agentti, jolla on etunimi ja sukunimi. Luokalle on määritelty metodi <code>tulosta</code>, joka luo seuraavanlaisen merkkijonoesityksen.
@@ -2146,7 +2146,7 @@ Arvosanaksi tuli 10
 <% end %>
 
 
-<% partial 'partials/exercise', locals: { name: 'Maksukortti (6 osaa)' } do %>
+<% partial 'partials/exercise', locals: { name: 'Maksukortti (6 osaa)', model_solution: '51487' } do %>
 
   <p>
     Helsingin Yliopiston opiskelijaruokaloissa eli Unicafeissa opiskelijat maksavat lounaansa käyttäen maksukorttia. Lopullinen Maksukortti tulee näyttämään luokkakaaviona seuraavalta:
@@ -2580,7 +2580,7 @@ Arvosanaksi tuli 10
 
 
 
-<% partial 'partials/exercise', locals: { name: 'Kertoja' } do %>
+<% partial 'partials/exercise', locals: { name: 'Kertoja', model_solution: '51488' } do %>
 
   <p>
     Luo luokka <code>Kertoja</code> jolla on:
@@ -2661,7 +2661,7 @@ Arvosanaksi tuli 10
   &nbsp;
 </p>
 
-<% partial 'partials/exercise', locals: { name: 'Lukutilasto (4 osaa)' } do %>
+<% partial 'partials/exercise', locals: { name: 'Lukutilasto (4 osaa)', model_solution: '51489' } do %>
 
   <h2>Lukujen määrä</h2>
 
@@ -3090,7 +3090,7 @@ Arvosanaksi tuli 10
 
 
 
-<% partial 'partials/exercise', locals: { name: 'Televisio-ohjelmat' } do %>
+<% partial 'partials/exercise', locals: { name: 'Televisio-ohjelmat', model_solution: '51490' } do %>
 
   <p>
     Tehtäväpohjassa on valmiina televisio-ohjelmaa kuvaava luokka TelevisioOhjelma. Luokalla on oliomuuttujat nimi ja pituus, konstruktori, ja muutamia metodeja.
@@ -3122,7 +3122,7 @@ Arvosanaksi tuli 10
 <% end %>
 
 
-<% partial 'partials/exercise', locals: { name: 'Kirjat (2 osaa)' } do %>
+<% partial 'partials/exercise', locals: { name: 'Kirjat (2 osaa)', model_solution: '51491' } do %>
 
   <p>
     Toteuta ohjelma, joka ensin lukee kirjojen tietoja käyttäjältä. Jokaisesta kirjasta tulee lukea kirjan nimi, sivujen lukumäärä sekä kirjoitusvuosi. Kirjojen lukeminen lopetetaan kun käyttäjä syöttää tyhjän kirjan nimen.

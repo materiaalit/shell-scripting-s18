@@ -6,6 +6,718 @@
 ---
 
 
+...
+
+
+
+<p>
+  TODO: musiikin soittamista?
+</p>
+
+---
+
+
+<p>
+Miksi vain hetkellisesti? Tieto on tietokoneen muistissa, josta se katoaa kun ohjelma sammutetaan. Tiedon tallentaminen pidemmäksi aikaa vaatii pitkittäismuistia, eli kovalevyä. Tällä kurssilla tutustutaan mm. tiedostoon kirjoittamiseen ja tiedoston lukemiseen. Muita tallennustapoja tarkastellaan muunmuassa kurssilla Tietokantojen perusteet.
+</p>
+
+<% partial 'partials/material_heading' do %>
+  Merkkijonojen käsittely
+<% end %>
+
+- charat
+- indexOf
+- substring
+
+- split -> taulukko
+
+
+--- 
+
+
+
+<% partial 'partials/material_sub_heading' do %>
+  Merkkijonon... metodit?
+<% end %>
+
+<p>
+  Merkkijonot poikkeavat luonteeltaan hieman esimerkiksi kokonaisluvuista. Kokonaisluvut ovat "pelkkiä arvoja" -- niiden avulla voi tehdä laskutoimituksia ja niiden arvon voi tulostaa:
+</p>
+
+<% partial 'partials/code_highlight' do %>
+int x = 1;
+int y = 3;
+
+y = 3 * x + 2;
+
+System.out.println("y:n arvo nyt: " + y);
+<% end %>
+
+<% partial 'partials/sample_output' do %>
+y:n arvo nyt: 5
+<% end %>
+
+<p>
+  Merkkijonot taas ovat hieman "älykkäämpiä" ja tietävät esimerkiksi pituutensa:
+</p>
+
+<% partial 'partials/code_highlight' do %>
+String sana1 = "Ohjelmointi";
+String sana2 = "Java";
+
+System.out.println("merkkijonon " + sana1 + " pituus: " + sana1.length());
+System.out.println("merkkijonon " + sana2 + " pituus: " + sana2.length());
+<% end %>
+
+<p>
+  Tulostuu:
+</p>
+
+<% partial 'partials/sample_output' do %>
+merkkijonon Ohjelmointi pituus on 11
+merkkijonon Java pituus on 4
+<% end %>
+
+<p>
+  Pituus saadaan selville kutsumalla merkkijonon metodia <code>length()</code>. Merkkijonoilla on joukko muitakin metodeja. Kokonaisluvuilla eli <code>int</code>:eillä ei ole metodeja ollenkaan, ne eivät itsessään "osaa" mitään. Mistä tässä oikein on kyse?
+</p>
+
+
+<% partial 'partials/material_sub_heading' do %>
+  Olioihin liittyy sekä metodeja että arvoja
+<% end %>
+
+<p>
+  Merkkijonot ovat olioita, joihin liittyy sekä merkkijonon teksti että metodeja, joilla tekstiä voi käsitellä. Termi <strong>olio</strong> tarkoittaa tietynlaista muuttujaa. Jatkossa tulemme näkemään hyvin paljon muitakin olioita kuin merkkijonoja.
+</p>
+
+<p>
+  Olion metodia kutsutaan lisäämällä muuttujan nimen perään piste ja metodin nimi. Näiden lisäksi tulee sulut sekä mahdolliset parametrit:
+</p>
+
+<% partial 'partials/code_highlight' do %>
+  String sana1 = "Ohjelmointi";
+  String sana2 = "Java";
+
+  sana1.length();    // kutsutaan merkkijono-olion sana1 metodia length()
+  sana2.length();    // kutsutaan merkkijono-olion sana2 metodia length()
+<% end %>
+
+<p>
+  Metodikutsu kohdistuu nimenomaan siihen olioon, mille metodia kutsutaan. Yllä kutsumme ensin <code>sana1</code>-nimisen merkkijonon <code>length()</code>-metodia, sitten merkkijonon <code>sana2</code> metodia <code>length()</code>.</p>
+
+<p>
+  Vanha tuttumme <code>lukija</code> on myös olio:
+</p>
+
+<% partial 'partials/code_highlight' do %>
+Scanner lukija = new Scanner(System.in);
+<% end %>
+
+<p>
+  Lukijat ja merkkijonot ovat molemmat oliota, mutta ne ovat kuitenkin varsin erilaisia. Lukijoilla on mm. metodi <code>nextLine()</code> jota merkkijonoilla ei ole. Javassa oliot "synnytetään" eli luodaan melkein aina komennolla <code>new</code>, merkkijonot muodostavat tässä suhteessa poikkeuksen! -- Merkkijonoja voi luoda kahdella tavalla:
+</p>
+
+<% partial 'partials/code_highlight' do %>
+String banaani = new String("Banaani");
+String porkkana = "porkkana";
+<% end %>
+
+<p>
+  Kumpikin ylläolevista riveistä luo uuden merkkijono-olion. Merkkijonojen luonnissa <code>new</code>-komentoa käytetään kuitenkin hyvin harvoin, sillä Java-ohjelmointikielen toteuttajat ovat tehneet merkkijonojen luomiseen lyhyemmän (ei new-komentoa tarvitsevan) tavan.
+</p>
+
+<p>
+  Olion "tyypistä" puhuttaessa puhutaan usein <em>luokista</em>. Merkkijonojen luokka on <code>String</code>, lukijoiden luokka taas on <code>Scanner</code>. Opimme jatkossa luokista ja olioista paljon lisää.
+</p>
+
+
+
+<% partial 'partials/material_sub_heading' do %>
+  Monimutkaisemman tiedon lukeminen
+<% end %>
+
+<p>
+  Edellisessä esimerkissä sekä sitä seuranneissa tehtävissä tiedoston sisältö käsiteltiin riveittäin lukuina tai merkkijonoina. Mikäli tiedosto noudattaa jonkinlaista ennalta määrättyä rakennetta ja sen sisältämä tieto liittyy konkreettiseen käsitteeseen, voidaan luetut rivit muuttaa myös olioiksi.
+</p>
+
+<p>
+  Oletetaan, että käytössämme on seuraavaa muotoa noudattava reseptejä sisältävä tiedosto. Tiedosto sisältää aina ensin reseptin nimen, jota seuraa reseptiin liittyvät raaka-aineet. Raaka-aineita seuraa tyhjä rivi, jonka jälkeen alkaa uusi resepti. Tiedoston muoto on siis seuraava
+</p>
+
+<% partial 'partials/sample_output' do %>
+  Reseptin 1 nimi
+  reseptin 1 raaka-aine 1
+  reseptin 1 raaka-aine 2
+
+  Reseptin 2 nimi
+  reseptin 2 raaka-aine 1
+  reseptin 2 raaka-aine 2
+  reseptin 2 raaka-aine 3
+  reseptin 2 raaka-aine 4
+
+  Reseptin 3 nimi
+  reseptin 3 raaka-aine 1
+  reseptin 3 raaka-aine 2
+  reseptin 3 raaka-aine 3
+  reseptin 3 raaka-aine 4
+<% end %>
+
+<p>
+  Käsitettä <code>Resepti</code> voidaan luoda kuvaamaan seuraavanlainen luokka, joka sisältää sekä nimen että listan raaka-aineita.
+</p>
+
+<% partial 'partials/code_highlight' do %>
+  import java.util.ArrayList;
+
+  public class Resepti {
+      private String nimi;
+      private ArrayList&lt;String&gt; raakaAineet;
+
+      public Resepti(String nimi) {
+          this.nimi = nimi;
+          this.raakaAineet = new ArrayList&lt;&gt;();
+      }
+
+      public void lisaaRaakaAine(String raakaAine) {
+          this.raakaAineet.add(raakaAine);
+      }
+
+      public String toString() {
+          String palautettava = this.nimi;
+          for (String raakaAine: this.raakaAineet) {
+              palautettava += "\n  " + raakaAine;
+          }
+          return palautettava;
+      }
+  }
+<% end %>
+
+<% partial 'partials/code_highlight' do %>
+  Resepti resepti = new Resepti("Lettutaikina");
+  resepti.lisaaRaakaAine("0.5 litraa maitoa");
+  resepti.lisaaRaakaAine("2 munaa");
+  resepti.lisaaRaakaAine("sopivasti jauhoa");
+  resepti.lisaaRaakaAine("0.5 tl suolaa");
+  resepti.lisaaRaakaAine("2 rkl sokeria");
+  resepti.lisaaRaakaAine("voita paistamiseen");
+
+  System.out.println(resepti);
+<% end %>
+
+<% partial 'partials/sample_output' do %>
+  Lettutaikina
+    0.5 litraa maitoa
+    2 munaa
+    sopivasti jauhoa
+    0.5 tl suolaa
+    2 rkl sokeria
+    voita paistamiseen
+<% end %>
+
+<p>
+  Nyt tiedoston lukeminen onnistuu seuraavasti.
+</p>
+
+
+<% partial 'partials/code_highlight' do %>
+  ArrayList&lt;Resepti&gt; reseptit = new ArrayList&lt;&gt;();
+  Scanner lukija = new Scanner(System.in);
+  System.out.println("Mistä tiedostosta luetaan?");
+  String tiedosto = lukija.nextLine();
+
+  try (Scanner tiedostonLukija = new Scanner(new File(tiedosto))) {
+
+      // luetaan reseptit ja raaka-aineet
+      while (tiedostonLukija.hasNextLine()) {
+          // luetaan resepti ja luodaan sitä vastaava olio
+          String reseptinNimi = tiedostonLukija.nextLine();
+          Resepti resepti = new Resepti(reseptinNimi);
+
+          // lisätään resepti listalle
+          reseptit.add(resepti);
+
+          // lisätään reseptiin raaka-aineet
+          while (tiedostonLukija.hasNextLine()) {
+              String raakaAine = tiedostonLukija.nextLine();
+
+              // reseptin raaka-aineet lopetetaan tyhjällä rivillä
+              if(raakaAine.isEmpty()) {
+                  // poistutaan tästä while-toistolauseesta
+                  // (ulompi jatkaa)
+                  break;
+              }
+
+              resepti.lisaaRaakaAine(raakaAine);
+          }
+
+      }
+  } catch (Exception e) {
+      System.out.println("Virhe: " + e.getMessage());
+  }
+
+  // tee jotain luetuilla resepteillä
+<% end %>
+
+
+<%= partial 'partials/quiz', locals: { id: '5a874484c1b9900004293f60' } %>
+
+<%= partial 'partials/quiz', locals: { id: '5a87457fc1b9900004293f62' } %>
+
+<%= partial 'partials/quiz', locals: { id: '5a8745e7c1b9900004293f63' } %>
+
+
+
+<% partial 'partials/exercise', locals: { name: 'Reseptihaku (4 osaa)' } do %>
+
+  <p>
+    Tässä tehtävässä tehdään ohjelma, joka tarjoaa käyttäjälle mahdollisuuden reseptien hakuun reseptin nimen, keittoajan tai raaka-aineen nimen perusteella. Ohjelman tulee lukea reseptit käyttäjän antamasta tiedostosta.
+  </p>
+
+  <p>
+    Jokainen resepti koostuu kolmesta tai useammasta rivistä reseptitiedostossa. Ensimmäisellä rivillä on reseptin nimi, toisella rivillä reseptin keittoaika (kokonaisluku), ja kolmas ja sitä seuraavat rivit kertovat reseptin raaka-aineet. Reseptin raaka-aineiden kuvaus päättyy tyhjään riviin. Tiedostossa voi olla useampia reseptejä. Alla kuvattuna esimerkkitiedosto.
+  </p>
+
+  <% partial 'partials/sample_output' do %>
+    Lettutaikina
+    60
+    maito
+    muna
+    jauho
+    sokeri
+    suola
+    voi
+
+    Lihapullat
+    20
+    jauheliha
+    muna
+    korppujauho
+
+    Tofurullat
+    30
+    tofu
+    riisi
+    vesi
+    porkkana
+    kurkku
+    avokado
+    wasabi
+  <% end %>
+
+  <p>
+    Ohjelma toteutetaan osissa. Ensin ohjelmaan luodaan mahdollisuus reseptien lukemiseen sekä listaamiseen. Tämän jälkeen ohjelmaan lisätään mahdollisuus reseptien hakemiseen nimen perusteella, keittoajan perusteella ja lopulta raaka-aineen perusteella.
+  </p>
+
+  <p>
+    Tehtäväpohjassa on mukana tiedosto <code>reseptit.txt</code>, jota voi käyttää sovelluksen testaamiseen. <em>Huomaa, että ohjelman ei tule listata reseptien raaka-aineita, mutta niitä käytetään hakutoiminnallisuudessa.</em>
+  </p>
+
+
+  <h2>
+    Reseptien lukeminen ja listaaminen
+  </h2>
+
+  <p>
+    Luo ohjelmaan ensin mahdollisuus reseptien lukemiseen sekä listaamiseen. Ohjelman käyttöliittymän tulee olla seuraavanlainen. Voit olettaa, että käyttäjä syöttää aina tiedoston, joka on olemassa. Alla oletetaan, että tehtävänannossa annetut esimerkkireseptit ovat tiedostossa <code>reseptit.txt</code>.
+  </p>
+
+  <% partial 'partials/sample_output' do %>
+    Mistä luetaan? <font color="red">reseptit.txt</font>
+
+    Komennot:
+    listaa - listaa reseptit
+    lopeta - lopettaa ohjelman
+
+    Syötä komento: <font color="red">listaa</font>
+
+    Reseptit:
+    Lettutaikina, keittoaika: 60
+    Lihapullat, keittoaika: 20
+    Tofurullat, keittoaika: 30
+
+    Syötä komento:  <font color="red">lopeta</font>
+  <% end %>
+
+
+  <h2>
+    Reseptien hakeminen nimen perusteella
+  </h2>
+
+  <p>
+    Lisää ohjelmaan mahdollisuus reseptien hakemiseen nimen perusteella. Nimen perusteella hakeminen tapahtuu komennolla <code>hae nimi</code>, jonka jälkeen käyttäjältä kysytään merkkijonoa, jota etsitään reseptin nimistä. Hakutoiminnallisuuden tulee toimia siten, että se tulostaa kaikki ne reseptit, joiden nimessä esiintyy käyttäjän kirjoittama merkkijono.
+  </p>
+
+
+  <% partial 'partials/sample_output' do %>
+    Mistä luetaan? <font color="red">reseptit.txt</font>
+
+    Komennot:
+    listaa - listaa reseptit
+    lopeta - lopettaa ohjelman
+    hae nimi - hakee reseptiä nimen perusteella
+
+    Syötä komento: <font color="red">listaa</font>
+
+    Reseptit:
+    Lettutaikina, keittoaika: 60
+    Lihapullat, keittoaika: 20
+    Tofurullat, keittoaika: 30
+
+    Syötä komento: <font color="red">hae nimi</font>
+    Mitä haetaan: <font color="red">rulla</font>
+
+    Reseptit:
+    Tofurullat, keittoaika: 30
+
+    Syötä komento:  <font color="red">lopeta</font>
+  <% end %>
+
+
+  <h2>
+    Reseptien hakeminen keittoajan perusteella
+  </h2>
+
+  <p>
+    Lisää seuraavaksi ohjelmaan mahdollisuus reseptien hakemiseen keittoajan perusteella. Keittoajan perusteella hakeminen tapahtuu komennolla <code>hae keittoaika</code>, jonka jälkeen käyttäjältä kysytään suurinta hyväksyttävää keittoaikaa. Hakutoiminnallisuuden tulee toimia siten, että se tulostaa kaikki ne reseptit, joiden keittoaika on pienempi tai yhtä suuri kuin käyttäjän syöttämä keittoaika.
+  </p>
+
+
+  <% partial 'partials/sample_output' do %>
+    Mistä luetaan? <font color="red">reseptit.txt</font>
+
+    Komennot:
+    listaa - listaa reseptit
+    lopeta - lopettaa ohjelman
+    hae nimi - hakee reseptiä nimen perusteella
+    hae keittoaika - hakee reseptiä keittoajan perusteella
+
+    Syötä komento: <font color="red">hae keittoaika</font>
+    Keittoaika korkeintaan: <font color="red">30</font>
+
+    Reseptit:
+    Lihapullat, keittoaika: 20
+    Tofurullat, keittoaika: 30
+
+    Syötä komento: <font color="red">hae keittoaika</font>
+    Keittoaika korkeintaan: <font color="red">15</font>
+
+    Reseptit:
+
+    Syötä komento: <font color="red">hae nimi</font>
+    Mitä haetaan: <font color="red">rulla</font>
+
+    Reseptit:
+    Tofurullat, keittoaika: 30
+
+    Syötä komento:  <font color="red">lopeta</font>
+  <% end %>
+
+
+  <h2>
+    Reseptien hakeminen raaka-aineen perusteella
+  </h2>
+
+  <p>
+    Lisää lopulta ohjelmaan mahdollisuus reseptien hakemiseen raaka-aineen perusteella. Raaka-aineen perusteella hakeminen tapahtuu komennolla <code>hae aine</code>, jonka jälkeen käyttäjältä kysytään merkkijonoa. Hakutoiminnallisuuden tulee toimia siten, että se tulostaa kaikki ne reseptit, joiden raaka-aineissa esiintyy käyttäjän antama merkkijono. Huomaa, että tässä annetun merkkijonon täytyy vastata täysin haettua raaka-ainetta (esim. "okeri" ei käy ole sama kuin "sokeri").
+  </p>
+
+  <% partial 'partials/sample_output' do %>
+    Mistä luetaan? <font color="red">reseptit.txt</font>
+
+    Komennot:
+    listaa - listaa reseptit
+    lopeta - lopettaa ohjelman
+    hae nimi - hakee reseptiä nimen perusteella
+    hae keittoaika - hakee reseptiä keittoajan perusteella
+    hae aine - hakee reseptiä raaka-aineen perusteella
+
+    Syötä komento: <font color="red">hae keittoaika</font>
+    Keittoaika korkeintaan: <font color="red">30</font>
+
+    Reseptit:
+    Lihapullat, keittoaika: 20
+    Tofurullat, keittoaika: 30
+
+    Syötä komento: <font color="red">hae aine</font>
+    Mitä raaka-ainetta haetaan: <font color="red">sokeri</font>
+
+    Reseptit:
+    Lettutaikina, keittoaika: 60
+
+    Syötä komento: <font color="red">hae aine</font>
+    Mitä raaka-ainetta haetaan: <font color="red">muna</font>
+
+    Reseptit:
+    Lettutaikina, keittoaika: 60
+    Lihapullat, keittoaika: 20
+
+    Syötä komento: <font color="red">hae aine</font>
+    Mitä raaka-ainetta haetaan: <font color="red">una</font>
+
+    Reseptit:
+
+    Syötä komento:  <font color="red">lopeta</font>
+  <% end %>
+
+<% end %>
+
+
+<% partial 'partials/material_sub_heading' do %>
+  Lukeminen verkkoyhteyden yli
+<% end %>
+
+<p>
+  Lähes kaikki verkkosivut, kuten tämäkin oppimateriaali, voidaan lukea tekstimuodossa ohjelmallista käsittelyä varten. Scanner-oliolle voi antaa konstruktorin parametrina lähes minkälaisen syötevirran tahansa. Alla olevassa esimerkissä luodaan URL-olio annetusta web-osoitteesta, pyydetään siihen liittyvää tietovirtaa, ja annetaan se uudelle Scanner-oliolle luettavaksi.
+</p>
+
+
+<% partial 'partials/code_highlight' do %>
+ArrayList&lt;String&gt; rivit = new ArrayList&lt;&gt;();
+
+// luodaan lukija web-osoitteen lukemista varten
+try (Scanner lukija = new Scanner(new URL("http://www.cs.helsinki.fi/home/").openStream())) {
+
+    // luetaan osoitteesta http://www.cs.helsinki.fi/home/
+    // saatava vastaus
+    while (lukija.hasNextLine()) {
+        rivit.add(lukija.nextLine());
+    }
+} catch (Exception e) {
+    System.out.println("Virhe: " + e.getMessage());
+}
+
+// tehdään jotain vastauksella
+<% end %>
+
+<p>
+  Web-selain on oikeastaan ohjelma siinä missä muutkin ohjelmat. Toisin kuin yllä toteutettu sivun sisällön lataaja, web-selaimeen on toteutettu toiminnallisuus vastauksena tulevan HTML-muotoisen lähdekoodin tulkisemiseen ja graafisessa käyttöliittymässä näyttämiseen.
+</p>
+
+
+<% partial 'partials/exercise', locals: { name: 'Chuck Norris -vitsit' } do %>
+
+  <p>
+    Osoitteessa <a href="http://www.icndb.com/api/" target="_blank" rel="noopener">http://www.icndb.com/api/</a> sijaitsee web-sovellus, joka tarjoaa Chuck Norris -vitsejä kaikkien vapaaseen käyttöön.
+  </p>
+
+  <p>
+    Sovellus tarjoaa muunmuassa mahdollisuuden satunnaisten vitsien hakemiseen (osoite <code>http://api.icndb.com/jokes/random</code>) sekä vitsien hakemiseen niihin liittyvillä numeerisilla tunnuksilla (osoite <code>http://api.icndb.com/jokes/<em>tunnus</em></code>, missä <em>tunnus</em> on kokonaisluku).
+  </p>
+
+  <p>
+    Toteuta sovellus, joka tarjoaa kolme toimintoa. Jos käyttäjä kirjoittaa "lopeta", ohjelman suoritus lopetetaan. Jos käyttäjä kirjoittaa "satunnainen", ohjelma tulostaa icndb-palvelusta noudetun satunnaisen chuck norris vitsin. Jos käyttäjä kirjoittaa "vitsi <em>numero</em>", missä numero on kokonaisluku, ohjelma tulostaa icndb-palvelusta noudetun tietyn vitsin.
+  </p>
+
+  <p>
+    Huom! Tässä tehtävässä riittää tulostaa palvelun palauttama merkkijono kokonaisuudessaan. Merkkijono voi olla esimerkiksi muotoa <code>{ "type": "success", "value": { "id": 341, "joke": "Chuck Norris sleeps with a pillow under his gun.", "categories": [] } }</code>.
+  </p>
+
+  <p>
+    Ohjelmassa ei ole testejä, eli testit eivät ota kantaa sovelluksen rakenteeseen tai tulostuksen ulkoasuun. Palauta sovellus kun se toimii koneellasi toivotulla tavalla.
+  </p>
+
+<% end %>
+
+
+
+<% partial 'partials/exercise', locals: { name: 'Arvosanatilastot (4 osaa)' } do %>
+
+  <p>
+    Tässä tehtävässä toteutetaan ohjelma kurssipistetilastojen tulostamiseen. Ohjelmalle syötetään pisteitä (kokonaislukuja nollasta sataan), ja ohjelma tulostaa niiden perusteella arvosanoihin liittyviä tilastoja. Syötteiden lukeminen lopetetaan kun käyttäjä syöttää luvun -1. Lukuja, jotka eivät ole välillä [0-100] ei tule ottaa huomioon tilastojen laskemisessa.
+  </p>
+
+  <p>
+    Muistathan, että käyttäjältä luetun merkkijonon saa muunnettua kokonaisluvuksi Integer-luokan metodilla parseInt. Tämä toimii seuraavasti:
+  </p>
+
+  <% partial 'partials/code_highlight' do %>
+    String lukuMerkkijonona = "3";
+    int luku = Integer.parseInt(lukuMerkkijonona);
+
+    System.out.println(lukuMerkkijonona + 7);
+    System.out.println(luku + 7);
+  <% end %>
+
+  <% partial 'partials/sample_output' do %>
+    37
+    10
+  <% end %>
+
+  <h2>Pisteiden keskiarvot</h2>
+
+  <p>
+    Kirjoita ohjelma, joka lukee käyttäjältä kurssin yhteispisteitä kuvaavia kokonaislukuja. Luvut väliltä [0-100] ovat hyväksyttäviä ja luku -1 lopettaa syötteen. Muut luvut ovat virhesyötteitä, jotka tulee jättää huomiotta. Kun käyttäjä syöttää luvun -1, tulostetaan syötettyjen yhteispisteiden keskiarvo.
+  </p>
+
+  <% partial 'partials/sample_output' do %>
+    Syötä yhteispisteet, -1 lopettaa:
+    <font color="red">-42</font>
+    <font color="red">24</font>
+    <font color="red">42</font>
+    <font color="red">72</font>
+    <font color="red">80</font>
+    <font color="red">52</font>
+    <font color="red">-1</font>
+    Pisteiden keskiarvo (kaikki): 54.0
+  <% end %>
+
+  <% partial 'partials/sample_output' do %>
+    Syötä yhteispisteet, -1 lopettaa:
+    <font color="red">50</font>
+    <font color="red">51</font>
+    <font color="red">52</font>
+    <font color="red">-1</font>
+    Pisteiden keskiarvo (kaikki): 51.0
+  <% end %>
+
+
+  <h2>Hyväksyttyyn arvosanaan liittyvien pisteiden keskiarvot</h2>
+
+  <p>
+    Täydennä ohjelmaa siten, että se laskee kaikkien pisteiden keskiarvon lisäksi myös hyväksyttyyn arvosanaan liittyvien pisteiden keskiarvot.
+  </p>
+
+  <p>
+    Hyväksytyn arvosanan saa vähintään 70 kurssipisteellä. Voit olettaa, että käyttäjä kirjoittaa aina vähintään yhden välillä [0-100] olevan kokonaisluvun. Jos hyväksyttyyn arvosanaan osuvia lukuja ei ole lainkaan, tulostetaan viiva hyväksyttyjen keskiarvon kohdalle "-".
+  </p>
+
+  <% partial 'partials/sample_output' do %>
+    Syötä yhteispisteet, -1 lopettaa:
+    <font color="red">-42</font>
+    <font color="red">24</font>
+    <font color="red">42</font>
+    <font color="red">72</font>
+    <font color="red">80</font>
+    <font color="red">52</font>
+    <font color="red">-1</font>
+    Pisteiden keskiarvo (kaikki): 54.0
+    Pisteiden keskiarvo (hyväksytyt): 76.0
+  <% end %>
+
+  <% partial 'partials/sample_output' do %>
+    Syötä yhteispisteet, -1 lopettaa:
+    <font color="red">50</font>
+    <font color="red">51</font>
+    <font color="red">52</font>
+    <font color="red">-1</font>
+    Pisteiden keskiarvo (kaikki): 51.0
+    Pisteiden keskiarvo (hyväksytyt): -
+  <% end %>
+
+
+  <h2>Hyväksyttyjen prosenttiosuus</h2>
+
+  <p>
+    Täydennä edellisessä osassa toteuttamaasi ohjelmaa siten, että ohjelma tulostaa myös hyväksymisprosentin. Hyväksymisprosentti lasketaan kaavalla <em>100 * hyväksytyt / osallistujat</em>.
+  </p>
+
+  <% partial 'partials/sample_output' do %>
+    Syötä yhteispisteet, -1 lopettaa:
+    <font color="red">50</font>
+    <font color="red">51</font>
+    <font color="red">52</font>
+    <font color="red">-1</font>
+    Pisteiden keskiarvo (kaikki): 51.0
+    Pisteiden keskiarvo (hyväksytyt): -
+    Hyväksymisprosentti: 0.0
+  <% end %>
+
+  <% partial 'partials/sample_output' do %>
+    Syötä yhteispisteet, -1 lopettaa:
+    <font color="red">102</font>
+    <font color="red">-4</font>
+    <font color="red">33</font>
+    <font color="red">77</font>
+    <font color="red">99</font>
+    <font color="red">1</font>
+    <font color="red">-1</font>
+    Pisteiden keskiarvo (kaikki): 52.5
+    Pisteiden keskiarvo (hyväksytyt): 88.0
+    Hyväksymisprosentti: 50.0
+  <% end %>
+
+
+  <h2>Arvosanajakauma</h2>
+
+  <p>
+    Täydennä ohjelmaa siten, että ohjelma tulostaa myös arvosanajakauman. Arvosananajakauma muodostetaan seuraavasti.
+  </p>
+
+  <table class="table">
+
+    <tr>
+      <th>pistemäärä</th>
+      <th>arvosana</th>
+    </tr>
+
+    <tr>
+      <td>&lt; 70</td>
+      <td>hylätty eli 0</td>
+    </tr>
+
+    <tr>
+      <td>&lt; 76</td>
+      <td>1</td>
+    </tr>
+
+    <tr>
+      <td>&lt; 81</td>
+      <td>2</td>
+    </tr>
+
+    <tr>
+      <td>&lt; 86</td>
+      <td>3</td>
+    </tr>
+
+    <tr>
+      <td>&lt; 91</td>
+      <td>4</td>
+    </tr>
+
+    <tr>
+      <td>&gt;= 91</td>
+      <td>5</td>
+    </tr>
+
+  </table>
+
+
+  <p>
+    Jokainen koepistemäärä muutetaan arvosanaksi yllä olevan taulukon perusteella. Jos syötetty pistemäärä ei ole välillä [0-100], jätetään se huomiotta.
+  </p>
+
+  <p>
+    Arvosanajakauma tulostetaan tähtinä. Esim jos arvosanaan 5 oikeuttavia koepistemääriä on 1 kappale, tulostuu rivi <em>5: *</em>. Jos johonkin arvosanaan oikeuttavia pistemääriä ei ole, ei yhtään tähteä tulostu, alla olevassa esimerkissä näin on mm. nelosten kohdalla.</em>
+  </p>
+
+  <% partial 'partials/sample_output' do %>
+    Syötä yhteispisteet, -1 lopettaa:
+    <font color="red">102</font>
+    <font color="red">-2</font>
+    <font color="red">1</font>
+    <font color="red">33</font>
+    <font color="red">77</font>
+    <font color="red">99</font>
+    <font color="red">-1</font>
+    Pisteiden keskiarvo (kaikki): 52.5
+    Pisteiden keskiarvo (hyväksytyt): 88.0
+    Hyväksymisprosentti: 50.0
+    Arvosanajakauma:
+    5: *
+    4:
+    3:
+    2: *
+    1:
+    0: **
+  <% end %>
+
+<% end %>
+
+
+
+
 <% partial 'partials/material_heading' do %>
   Algoritmiikkaa: Järjestäminen ja hakeminen
 <% end %>

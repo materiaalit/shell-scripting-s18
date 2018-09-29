@@ -20,6 +20,24 @@
   Mistä olio-ohjelmoinnissa oikein on kyse: katsaus taaksepäin
 <% end %>
 
+
+<% partial 'partials/learning_objectives', locals: { name: 'Oppimistavoitteet' } do %>
+
+  <ul>
+    <li>
+      Kertaat käsitteitä luokka ja olio.
+    </li>
+    <li>
+      Huomaat, että ilman olioita tehdyn ohjelman voi tehdä myös olioiden avulla.
+    </li>
+    <li>
+      Huomaat, että olioden käyttö voi selkeyttää ohjelman ymmärrettävyyttä.
+    </li>
+  </ul>
+
+<% end %>
+
+
 <p>
   Tarkastellaan digitaalisen kellon toimintaa. Kellossa on kolme viisaria: tunnit, minuutit ja sekunnit. Sekuntiviisari kasvaa kerran sekunnissa. Minuuttiviisari kerran kuudessakymmenessä sekunnissa. Tuntiviisari kerran kuudessakymmenessä minuutissa. Kun sekuntiviisarin arvo on 60, sen arvoksi asetetaan nolla ja minuuttiviisarin arvoa kasvatetaan yhdellä. Kun minuuttiviisarin arvo on 60, sen arvoksi asetetaan nolla ja tuntiviisarin arvoa kasvatetaan yhdellä. Kun tuntiviisarin arvo on 24, sen arvoksi asetetaan nolla.
 </p>
@@ -557,6 +575,24 @@ J. K. Rowling, Harry Potter ja viisasten kivi, 223 sivua
   Alkeis- ja viittaustyyppiset muuttujat
 <% end %>
 
+
+<% partial 'partials/learning_objectives', locals: { name: 'Oppimistavoitteet' } do %>
+
+  <ul>
+    <li>
+      Tunnet käsitteet alkeistyyppinen muuttuja ja viittaustyyppinen muuttuja.
+    </li>
+    <li>
+      Tiedät minkälaisia alkeistyyppisiä muuttujia Javassa on, ja tiedät että erilaisia viittaustyyppisiä muuttujia voi olla käytännössä rajaton määrä.
+    </li>
+    <li>
+      Tiedät miten alkeis- ja viittaustyyppisten muuttujien käyttäytyminen eroaa toisistaan kun muuttujaan asetetaan arvoa ja kun muuttujaa käytetään metodin parametrina.
+    </li>
+  </ul>
+
+<% end %>
+
+
 <p>
   Javan muuttujat jaetaan alkeis- ja viittaustyyppisiin muuttujiin. Ohjelmoijan näkökulmasta alkeistyyppisten muuttujien tieto on tallennettu muuttujan arvoksi, kun taas viittaustyyppisten muuttujien arvona on viite muuttujaan liittyvään tietoon. Viittaustyyppiset muuttujat ovat Java-kielessä käytännössä aina olioita. Tarkastellaan näitä muuttujatyyppejä kahden esimerkin kautta.
 </p>
@@ -918,6 +954,22 @@ J. K. Rowling, Harry Potter ja viisasten kivi, 223 sivua
   Metodien ja konstruktorien kuormittaminen
 <% end %>
 
+<% partial 'partials/learning_objectives', locals: { name: 'Oppimistavoitteet' } do %>
+
+  <ul>
+    <li>
+      Tunnet käsitteen kuormittaminen.
+    </li>
+    <li>
+      Osaat luoda luokalle useampia konstruktoreita.
+    </li>
+    <li>
+      Osaat luoda luokkaan useampia samannimisiä metodeja.
+    </li>
+  </ul>
+
+<% end %>
+
 
 <p>
   Palataan jälleen henkilöitä käsittelevän luokan pariin. Luokka <code>Henkilo</code> näyttää tällä hetkellä seuraavalta:
@@ -1275,6 +1327,30 @@ public void vanhene(int vuodet) {
 <% partial 'partials/material_heading' do %>
   Oliot ja viitteet
 <% end %>
+
+
+<% partial 'partials/learning_objectives', locals: { name: 'Oppimistavoitteet' } do %>
+
+  <ul>
+    <li>
+      Kertaat luokkien ja olioiden toimintaa.
+    </li>
+    <li>
+      Tiedät mikä on "null"-viite ja tiedät mistä virhe NullPointerException johtuu.
+    </li>
+    <li>
+      Osaat käyttää olioita oliomuuttujana ja metodin parametrina.
+    </li>
+    <li>
+      Osaat luoda metodin, joka palauttaa olion.
+    </li>
+    <li>
+      Osaat luoda equals-metodin, jolla voi tarkastaa onko kaksi samantyyppistä oliota sisällöllisesti samat.
+    </li>
+  </ul>
+
+<% end %>
+
 
 <p>
   Jatketaan olioiden ja viitteiden parissa. Oletetaan, että käytössämme on alla oleva henkilöä kuvaava luokka. Henkilöllä on oliomuuttujat nimi, ikä, paino ja pituus, jonka lisäksi se tarjoaa metodin mm. painoindeksin laskemiseen.
@@ -3226,12 +3302,26 @@ public void vanhene(int vuodet) {
 <% end %>
 
 
-
-
-
 <% partial 'partials/material_heading' do %>
   Listakin sisältää viitteitä
 <% end %>
+
+<% partial 'partials/learning_objectives', locals: { name: 'Oppimistavoitteet' } do %>
+
+  <ul>
+    <li>
+      Kertaat listojen käyttöä.
+    </li>
+    <li>
+      Tiedät, että viittaustyyppisen muuttujan lisääminen listalle kopioi listalle muuttujan viitteen.
+    </li>
+    <li>
+      Osaat käyttää listaa oliomuuttujana.
+    </li>
+  </ul>
+
+<% end %>
+
 
 <p>
   Tarkastellaan vielä olioiden -- tai viittaustyyppisten muuttujien -- käyttöä listalla. Kun olio lisätään listalle, listalle kopioidaan viite. Kuten aiemmin, olion sisäisestä tilasta ei luoda kopiota, vaan listalle lisätään viite olemassa olevaan olioon.

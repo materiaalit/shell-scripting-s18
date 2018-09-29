@@ -2495,7 +2495,7 @@ Arvosanaksi tuli 10
           this.paino = uusiPaino;
       }
 
-      public double painoIndeksi() {
+      public double painoindeksi() {
           double pituusPerSata = this.pituus / 100.0;
           return this.paino / (pituusPerSata * pituusPerSata);
       }
@@ -2519,8 +2519,8 @@ Arvosanaksi tuli 10
       juhana.setPituus(175);
       juhana.setPaino(64);
 
-      System.out.println(matti.getNimi() + ", painoindeksisi on " + matti.painoIndeksi());
-      System.out.println(juhana.getNimi() + ", painoindeksisi on " + juhana.painoIndeksi());
+      System.out.println(matti.getNimi() + ", painoindeksisi on " + matti.painoindeksi());
+      System.out.println(juhana.getNimi() + ", painoindeksisi on " + juhana.painoindeksi());
   }
 <% end %>
 
@@ -2635,17 +2635,17 @@ Arvosanaksi tuli 10
 
 <% partial 'partials/code_highlight' do %>
   public String toString() {
-      return this.nimi + ", ikä " + this.ika + " vuotta, painoindeksini on " + this.painoIndeksi();
+      return this.nimi + ", ikä " + this.ika + " vuotta, painoindeksini on " + this.painoindeksi();
   }
 <% end %>
 
 <p>
-  Eli kun olio kutsuu omaa metodiaan, riittää etuliite this ja pelkkä metodin nimi. Vaihtoehtoinen tapa on tehdä oman metodin kutsu muodossa <code>painoIndeksi()</code> jolloin ei korosteta, että kutsutaan "olion itsensä" metodia painoindeksi:
+  Eli kun olio kutsuu omaa metodiaan, riittää etuliite this ja pelkkä metodin nimi. Vaihtoehtoinen tapa on tehdä oman metodin kutsu muodossa <code>painoindeksi()</code> jolloin ei korosteta, että kutsutaan "olion itsensä" metodia painoindeksi:
 </p>
 
 <% partial 'partials/code_highlight' do %>
   public String toString() {
-      return this.nimi + ", ikä " + this.ika + " vuotta, painoindeksini on " + painoIndeksi();
+      return this.nimi + ", ikä " + this.ika + " vuotta, painoindeksini on " + painoindeksi();
   }
 <% end %>
 
@@ -2986,7 +2986,7 @@ Arvosanaksi tuli 10
           this.paino = uusiPaino;
       }
 
-      public double painoIndeksi() {
+      public double painoindeksi() {
           double pituusPerSata = this.pituus / 100.0;
           return this.paino / (pituusPerSata * pituusPerSata);
       }

@@ -5,6 +5,91 @@
   published: false
 ---
 
+
+
+<% partial 'partials/material_heading' do %>
+  Alkeis- ja viittaustyyppiset muuttujat tietokoneen näkökulmasta
+<% end %>
+
+<p>
+   Sanoessamme "muuttujaan asetetaan arvo.." tai "muuttujan arvoksi kopioidaan.." käytämme ohjelmoijien käyttämää kieltä. 
+   
+   Ohjelmoijien kieli on kuitenkin abstraktio tietokoneen sisäisestä toiminnasta. Tarkastellaan tässä lyhyesti mitä 
+</p>
+
+<p>
+Ohjelmointikieli on abstraktio mikä mahdollistaa ohjelmointiin liittyvistä asioista puhumisen abstraktioiden avulla.
+</p>
+
+<p>
+  Aiheeseen syvennytään tarkemmin kurssilla tietokoneen toiminta.
+</p>
+
+<p>
+  Tänne bittijutut sekä muisti jne. 
+</p>
+
+
+
+<% partial 'partials/hint', locals: { name: 'Bitit ja binääriluvut' } do %>
+
+  <p>
+    Tietokoneen muisti on käytännössä taulukko, missä jokainen taulukon lokero sisältää joko luvun 0 tai 1. Näitä yksittäisiä lukuja kutsutaan biteiksi (lyhenne sanasta binary digit). Koneen käyttämät luvut kuvataan bittien avulla binäärilukuina. Esimerkiksi <code>short</code>-tyyppinen muuttuja sisältää 16 bittiä ja <code>int</code>-tyyppinen muuttuja 32 bittiä. TODO: miten string-muodostuu
+  </p>
+
+  <p>
+    Tarkastellaan miten binääriluvut toimivat. Alla on kuvattuna 8 bittiä pitkä alue tietokoneen muistista, missä jokainen bitin arvo on 0. 
+  </p>
+
+  <table border="1">
+    <tr>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </table>
+
+  <br/>
+  
+  <p>
+    Binäärilukukujen avulla jokainen luku voidaan esittää luvun 2 potensseina. Esimerkiksi yllä olevan kahdeksan bitin luvun arvo kymmenjärjestelmässä on: 0 * 2<sup>0</sup> + 0 * 2<sup>1</sup> + ... + 0 * 2<sup>7</sup> = 0. Laskeminen aloitetaan tyypillisesti luvun oikeasta laidasta. Alla on kuvattuna toinen esimerkki.
+  </p>
+  
+  <table border="1">
+    <tr>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+  </table>
+
+  <br/>
+  
+  <p>
+    Yllä kuvattu binääriluku on kymmenjärjestelmässä: 1 * 2<sup>0</sup> + 0 * 2<sup>1</sup> + 1 * 2<sup>2</sup> + 0 * 2<sup>3</sup> + ... + 0 * 2<sup>7</sup> = 5. 
+  </p>
+
+  <p>
+    Vastaavasti kymmenjärjestelmän luku 3 voidaan ilmaista binäärilukuna "11", ja esimerkiksi luku 256 binäärilukuna "100000000". Binäärilukujen avulla kuvataan lukujen lisäksi käytännössä kaikki tietokoneen tallentama tieto. Tähän teemaan tutustutaan tarkemmin kurssilla Tietokoneen toiminta (TKT-10005). 
+  </p>
+
+  <p>
+    TODO: tieto muistissa -- muuttuja on osoite paikkaan; int-muuttujan arvon saa selville lukemalla 32 bittiä int-muuttujan arvon kuvaamasta paikasta lähtien.
+  </p>
+
+<% end %>
+
+
 <p>
   TODO: jatkokurssille moniulotteiset taulukot
 </p>

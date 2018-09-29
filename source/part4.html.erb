@@ -6,7 +6,6 @@
   load_youtube: true
 ---
 
-
 <% partial 'partials/hint', locals: { name: 'Neljännen osan tavoitteet' } do %>
 
   <p>
@@ -59,7 +58,7 @@ while (true) {
         break;
     }
 
-    // lisää luettu rivi listalle myöhempää käsittelyä 
+    // lisää luettu rivi listalle myöhempää käsittelyä
     // varten tai käsittele rivi heti
 
 }
@@ -107,19 +106,19 @@ while (true) {
 
 <% partial 'partials/code_highlight' do %>
   Scanner lukija = new Scanner(System.in);
-  
+
   while (true) {
       String rivi = lukija.nextLine();
-  
+
       if (rivi.equals("loppu")) {
           break;
       }
 
       int luku = Integer.valueOf(rivi);
-      System.out.println(luku);  
+      System.out.println(luku);
   }
 
-  
+
 <% end %>
 
 
@@ -166,11 +165,11 @@ while (true) {
 <p>
   Tiedostot voivat sijaita käytännössä missä tahansa kovalevyn kohdassa, jopa niin, että tiedosto on pilkottuna useampaan osaan. Tietokoneen <strong>tiedostojärjestelmän</strong> vastuulla on pitää kirjaa tiedostojen sijainnista kovalevyllä sekä tarjota mahdollisuus uusien tiedostojen luomiseen sekä näiden muokkaamiseen. Tärkein tiedostojärjestelmän toiminnallisuus on kuitenkin kovalevyn todellisen rakenteen abstrahointi: tiedostoja käyttävän henkilön tai ohjelman ei tarvitse välittää siitä, miten ja minne tiedosto on oikeasti tallennettu.
 </p>
-  
+
 <p>
-  Tietokoneissa on useampia ohjelmia tiedostojen selaamiseen ja nämä ohjelmistot ovat käyttöjärjestelmäkohtaisia. Kaikki tiedostojen selaamiseen käytettävistä ohjelmista käyttävät tavalla tai toisella tietokoneen tiedostojärjestelmää. 
+  Tietokoneissa on useampia ohjelmia tiedostojen selaamiseen ja nämä ohjelmistot ovat käyttöjärjestelmäkohtaisia. Kaikki tiedostojen selaamiseen käytettävistä ohjelmista käyttävät tavalla tai toisella tietokoneen tiedostojärjestelmää.
 </p>
-  
+
 <p>
   Myös käyttämämme ohjelmointiympäristö tarjoaa mahdollisuuden ohjelmointiympäristössä olevien projektien sisältämien tiedostojen selaamiseen. Voit käydä tarkastelemassa NetBeansissa kaikkia projektiin liittyviä tiedostoja valitsemalla <code>Files</code>-välilehden, joka löytyy <code>Projects</code>-välilehden kanssa samasta paikasta. Mikäli <code>Files</code>-välilehteä ei löydy, saa sen auki myös <code>Window</code>-valikosta. Klikkaamalla projektin auki, näet kaikki siihen liittyvät tiedostot.
 </p>
@@ -205,10 +204,10 @@ while (true) {
 
 
   // ohjelmassa:
-  
+
   // luodaan lukija tiedoston lukemista varten
   try (Scanner tiedostonLukija = new Scanner(new File("tiedosto.txt"))) {
-  
+
       // luetaan tiedostoja kunnes kaikki rivit on luettu
       while (tiedostonLukija.hasNextLine()) {
           // luetaan yksi rivi
@@ -219,7 +218,7 @@ while (true) {
   } catch (Exception e) {
       System.out.println("Virhe: " + e.getMessage());
   }
-  
+
 <% end %>
 
 <p>
@@ -456,7 +455,7 @@ Lukuja: 4
 <% end %>
 
 <p>
-  Edellisissä esimerkeissä ja ohjelmissa luettu tieto on ollut pääosin melko yksinkertaista. Todellisuudessa maailma on täynnä tietoa, joka liittyy muuhun tietoon -- tieto muodostaa kokonaisuuksia. Esimerkiksi henkilön tietoihin kuuluu nimi, syntymäaika, puhelinnumero, osoitetietoihin kuuluu maa, kaupunki, katuosoite, postinumero ja niin edelleen. 
+  Edellisissä esimerkeissä ja ohjelmissa luettu tieto on ollut pääosin melko yksinkertaista. Todellisuudessa maailma on täynnä tietoa, joka liittyy muuhun tietoon -- tieto muodostaa kokonaisuuksia. Esimerkiksi henkilön tietoihin kuuluu nimi, syntymäaika, puhelinnumero, osoitetietoihin kuuluu maa, kaupunki, katuosoite, postinumero ja niin edelleen.
 </p>
 
 <p>
@@ -468,11 +467,11 @@ Lukuja: 4
 
   int vanhinIka = -1;
   String vanhin = "";
-  
+
   while (true) {
       System.out.print("Syötä nimi: ");
       String nimi = lukija.nextLine();
-  
+
       if (nimi.equals("")) {
           break;
       }
@@ -485,10 +484,10 @@ Lukuja: 4
         vanhinIka = ika;
       }
   }
-  
+
   System.out.println("Vanhin henkilö oli " + vanhin + " (ikä " + vanhinIka + ")");
 <% end %>
-  
+
 <p>
   Yllä olevassa esimerkissä ja tehtävässä käsiteltävä tieto kysyttiin pala kerrallaan. Toinen vaihtoehto on kysyä tieto määrätynlaisessa muodossa, missä kaikki tiedon osat ovat esimerkiksi samalla rivillä. Eräs tällainen muoto on comma-separated values (CSV)-muoto, eli pilkuilla erotetut tiedot. Alla olevassa esimerkissä on toteutettuna yllä oleva ohjelma siten, että nimi ja ikä syötetään samalla rivillä pilkuilla erotettuna.
 </p>
@@ -499,11 +498,11 @@ Lukuja: 4
 
   int vanhinIka = -1;
   String vanhin = "";
-  
+
   while (true) {
       System.out.print("Syötä nimi: ");
       String rivi = lukija.nextLine();
-  
+
       if (rivi.equals("")) {
           break;
       }
@@ -517,7 +516,7 @@ Lukuja: 4
         vanhinIka = ika;
       }
   }
-  
+
   System.out.println("Vanhin henkilö oli " + vanhin + " (ikä " + vanhinIka + ")");
 <% end %>
 
@@ -529,7 +528,7 @@ Lukuja: 4
   <font color="red">virpi,19</font>
   <font color="red">jenna,21</font>
   <font color="red">ada,20</font>
-  
+
   Vanhin henkilö oli jenna (ikä 21 vuotta)
 <% end %>
 
@@ -574,7 +573,7 @@ try (Scanner tiedostonLukija = new Scanner(new File("henkilot.csv"))) {
         int vuosi = Integer.valueOf(osat[1]);
 
         System.out.println(nimi + " on syntynyt vuonna " + vuosi)
-        
+
     }
 } catch (Exception e) {
     System.out.println("Virhe: " + e.getMessage());
@@ -598,7 +597,7 @@ try (Scanner tiedostonLukija = new Scanner(new File("henkilot.csv"))) {
   <p>
     Kirjoita ohjelma, joka lukee käyttäjältä henkilöiden nimiä ja ikiä. Kunkin henkilön nimi ja ikä syötetään samalla rivillä. Nimi ja ikä on pilkulla erotettu. Kun käyttäjä syöttää merkkijonon "loppu", lukeminen lopetetaan. Tämän jälkeen ohjelma tulostaa nuorimman henkilön nimen. Voit olettaa, että nuorin henkilö on yksikäsitteinen, eli syötteessä ei ole useampia saman ikäisiä (nuorimpia) henkilöitä.
   </p>
-  
+
   <p>
     Alla on ohjelman suoritusesimerkki.
   </p>
@@ -622,14 +621,14 @@ try (Scanner tiedostonLukija = new Scanner(new File("henkilot.csv"))) {
   </p>
 
   <hr/>
-  
+
   <pre>
 lilja,3
 anton,5
 leevi,4
 aamu,1
   </pre>
-  
+
   <hr/>
 
   <p>
@@ -651,7 +650,7 @@ aamu,1
 <% end %>
 
 
-<% partial 'partials/learning_objectives', locals: { name: 'Oppimistavoitteet' } do %>  
+<% partial 'partials/learning_objectives', locals: { name: 'Oppimistavoitteet' } do %>
 
   <ul>
     <li>
@@ -664,7 +663,7 @@ aamu,1
 
 <% end %>
 
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTi3npCfWrmPM2TdfyTCYYlzskVEYZZt7gi1pTUjkx1JjAgfF-ab9o1Koz5JlxenjuORHoX_5m0GNmQ/embed?start=false&loop=false&delayms=3000" frameborder="0" width="770" height="462" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+<div class="pdf-slideshow-widget" data-pdf='../slideshows/johdatus-olio-ohjelmointiin.pdf'></div>
 
 
 <% partial 'partials/material_heading' do %>
@@ -682,7 +681,7 @@ aamu,1
       Ymmärrät että luokka määrää olion muuttujat ja metodit, ja tiedät että oliomuuttujien arvot ovat oliokohtaisia.
     </li>
     <li>
-      Osaat luoda luokkia ja olioita ja osaat käyttää olioita osana ohjelmia. 
+      Osaat luoda luokkia ja olioita ja osaat käyttää olioita osana ohjelmia.
     </li>
     <li>
       Osaat käsitellä listalla olevia olioita.
@@ -798,7 +797,7 @@ aamu,1
   <p>
     Tässäkin tehtävässä on käytössä edellisessä tehtävässä mukana ollut luokka <code>Tili</code>.
   </p>
-  
+
   <p>
     Tee ohjelma joka:
   </p>
@@ -810,7 +809,7 @@ aamu,1
     <li>Panee omalle tilille 100.0</li>
     <li>Tulostaa molemmat tilit</li>
   </ol>
-  
+
 <% end %>
 
 <% partial 'partials/material_sub_heading' do %>
@@ -1034,7 +1033,7 @@ aamu,1
   <p>
     Mikäli ohjelmoija ei tee luokalle konstruktoria, tekee Java automaattisesti luokalle oletuskonstruktorin. Oletuskonstruktori on konstruktori joka ei tee mitään muuta kuin luo olion. Olion muuttujat jäävät alustamattomiksi (yleisesti ottaen viittaustyyppisten muuttujien arvoksi tulee <code>null</code>, eli ei viitettä mihinkään, ja alkeistyyppisten muuttujien arvoksi <code>0</code>).
   </p>
-  
+
   <p>
     Esimerkiksi alla olevasta luokasta voidaan luoda olio kutsulla <code>new Henkilo()</code>.
   </p>
@@ -1466,7 +1465,7 @@ Banaani, hinta 1.1, 13 kpl
             VahenevaLaskuri laskuri = new VahenevaLaskuri(100);
 
             laskuri.tulostaArvo();
- 
+
             laskuri.nollaa();
             laskuri.tulostaArvo();
 
@@ -1540,11 +1539,11 @@ Banaani, hinta 1.1, 13 kpl
   <p>
     Luo luokka <code>Velka</code>, jolla on double-tyyppiset oliomuuttujat <code>saldo</code> ja <code>korkokerroin</code>. Saldo ja korkokerroin annetaan konstruktorin parametrina <code>public Velka(double saldoAlussa, double korkokerroinAlussa)</code>.
   </p>
-  
+
   <p>
     Luo luokalle myös metodit <code>public void tulostaSaldo()</code> sekä <code>public void odotaVuosi()</code>. Metodi tulostaSaldo tulostaa tämän hetkisen saldon, ja metodi odotaVuosi kasvattaa velan määrää.
   </p>
-  
+
   <p>
     Velan määrän kasvattaminen tapahtuu kertomalla saldo korkokertoimella.
   </p>
@@ -1694,7 +1693,7 @@ Arvosanaksi tuli 10
       }
     <% end %>
   </li>
-    
+
   <li>Metodilla, joka palauttaa liukulukutyyppisen muuttujan, on <code>double</code>-määre palautettavan muuttujan tyyppinä.
     <% partial 'partials/code_highlight' do %>
       public double metodiJokaPalauttaaLiukuluvun() {
@@ -1766,7 +1765,7 @@ Arvosanaksi tuli 10
 <%= partial 'partials/quiz', locals: { id: '5a57bcce574f0b000439a331' } %>
 
 <% partial 'partials/exercise', locals: { name: 'Henkilo', model_solution: '51483' } do %>
-  
+
   <p>
     Luo luokka Henkilo (ei öötä!). Luokan Henkilo tulee sisältää seuraavan luokkakaavion määrittelemät ominaisuudet.
   </p>
@@ -2724,10 +2723,10 @@ Arvosanaksi tuli 10
   <% partial 'partials/sample_output' do %>
     Määrä: 4
   <% end %>
-  
-  
+
+
   <h2>Summa ja keskiarvo</h2>
-  
+
   <p>
     Laajenna luokkaa seuraavilla toiminnoilla:
   </p>
@@ -2822,9 +2821,9 @@ Arvosanaksi tuli 10
     Summa: 15
   <% end %>
 
-  
+
   <h2>Monta summaa</h2>
-  
+
   <p>
     Muuta edellistä ohjelmaa niin, että ohjelma laskee myös parillisten ja parittomien lukujen summaa.
   </p>
@@ -3051,7 +3050,7 @@ Arvosanaksi tuli 10
   System.out.println();
   System.out.println("Henkilöitä yhteensä: " + henkilot.size());
   System.out.println("Henkilöt: ");
-  
+
   for (Henkilo henkilo: henkilot) {
       System.out.println(henkilo);
   }
@@ -3196,15 +3195,15 @@ Arvosanaksi tuli 10
   <p>
     Tee tehtävään valmiiksi lista tai listoja, jotka sisältävät oman valintasi mukaan joko merkkijonoja, kokonaislukuja tai liukulukuja. Täytä listan arvot valmiiksi.
   </p>
-  
+
   <p>
     Ohjeista tulevaa tehtävän ratkaisijaa kysymään käyttäjältä komentoa, jonka jälkeen listalta haetaan komennon perusteella jotakin tietoa, joka sen jälkeen tuolostetaan. Jos annettu käsky ei ole sallittujen listalla, tulee ohjelman tulostaa jokin virheviesti.
   </p>
-  
+
   <p>
     Esimerkiksi yksi tälläinen tehtävä voisi sisältää listan kokonaislukuja, ja käskyt voisivat olla: "suurin", "pienin" ja "keskiarvo". Kun tuleva tehtävän ratkaisija antaa käskyn "keskiarvo", ohjelma tulostaa listan lukujen keskiarvon ja niin edelleen. Keksi kuitenkin tehtävällesi omat sallitut käskyt.
   </p>
-  
+
   <p>
     Muista merkitä ainakin käskyyn reagointiin liittyvät rivit malliratkaisuriveiksi -- näin ratkaisu ei tule suoraan tehtäväpohjaan. Vastaavasti älä merkitse listan luontia tai sen arvoja lisäävää koodia malliratkaisuriveiksi, sillä se on tarkoitus jättää tehtäväpohjaan.
   </p>
@@ -3219,7 +3218,7 @@ Arvosanaksi tuli 10
 
 <% end %>
 
-<div class='crowdsorcerer-widget' data-assignment='11'></div> 
+<div class='crowdsorcerer-widget' data-assignment='11'></div>
 
 <% partial 'partials/material_heading' do %>
   Yhteenveto

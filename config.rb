@@ -9,6 +9,7 @@ require 'json'
 page '/*.xml', layout: false
 page '/*.json', layout: false
 page '/*.txt', layout: false
+page '/*.js', layout: false
 page '/paste.html', layout: false
 
 
@@ -37,6 +38,8 @@ activate :external_pipeline,
 configure :development do
   activate :livereload
 end
+
+::Rack::Mime::MIME_TYPES['.pdf'] = 'application/pdf'
 
 ###
 # Helpers

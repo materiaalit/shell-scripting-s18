@@ -511,7 +511,7 @@ Lukuja: 4
       String nimi = palat[0];
       int ika = Integer.valueOf(palat[1]);
 
-      if (vanhin.equals("") || vanhinIka &gt; ika) {
+      if (vanhin.equals("") || vanhinIka < ika) {
         vanhin = nimi;
         vanhinIka = ika;
       }

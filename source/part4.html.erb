@@ -479,7 +479,7 @@ Lukuja: 4
       System.out.print("Syötä henkilön " + nimi + " ikä: ");
       int ika = Integer.valueOf(lukija.nextLine());
 
-      if (vanhin.equals("") || vanhinIka &gt; ika) {
+      if (vanhin.equals("") || vanhinIka &lt; ika) {
         vanhin = nimi;
         vanhinIka = ika;
       }

@@ -6,6 +6,61 @@
 ---
 
 
+<% partial 'partials/exercise', locals: { name: 'Lintubongarin tietokanta (3 osaa)' } do %>
+
+  <p><b>Tehtävä vastaa kolmea yksiosaista tehtävää. </b></p>
+
+  <p>
+    Tässä tehtävässä suunnittelet ja toteutat tietokannan lintubongareille. Tietokanta sisältää lintuja, joista jokaisella on nimi (merkkijono) ja latinankielinen nimi (merkkijono). Tämän lisäksi tietokanta laskee kunkin linnun havaintokertoja.
+  </p>
+
+  <p>
+    Ohjelmasi täytyy toteuttaa seuraavat komennot:
+  </p>
+
+  <ul>
+    <li><code>Lisaa</code> - lisää linnun (<b>huom:</b> komennon nimessä ei ä-kirjainta!)</li>
+    <li><code>Havainto</code> - lisää havainnon</li>
+    <li><code>Tilasto</code> - tulostaa kaikki linnut</li>
+    <li><code>Nayta</code> - tulostaa yhden linnun (<b>huom:</b> komennon nimessä ei ä-kirjainta!)</li>
+    <li><code>Lopeta</code> - lopettaa ohjelman</li>
+  </ul>
+
+  <p>
+    Lisäksi virheelliset syötteet pitää käsitellä. (Ks. <code>Simo</code> alla). Tässä vielä esimerkki ohjelman toiminnasta:
+  </p>
+
+  <% partial 'partials/sample_output' do %>
+    ? <font color="red">Lisaa</font>
+    Nimi: <font color="red">Korppi</font>
+    Latinankielinen nimi: <font color="red">Corvus Corvus</font>
+    ? <font color="red">Lisaa</font>
+    Nimi: <font color="red">Haukka</font>
+    Latinankielinen nimi: <font color="red">Dorkus Dorkus</font>
+    ? <font color="red">Havainto</font>
+    Mikä havaittu? <font color="red">Haukka</font>
+    ? <font color="red">Havainto</font>
+    Mikä havaittu? <font color="red">Simo</font>
+    Ei ole lintu!
+    ? <font color="red">Havainto</font>
+    Mikä havaittu? <font color="red">Haukka</font>
+    ? <font color="red">Tilasto</font>
+    Haukka (Dorkus Dorkus): 2 havaintoa
+    Korppi (Corvus Corvus): 0 havaintoa
+    ? <font color="red">Nayta</font>
+    Mikä? <font color="red">Haukka</font>
+    Haukka (Dorkus Dorkus): 2 havaintoa
+    ? <font color="red">Lopeta</font>
+  <% end %>
+
+  <p>
+    <strong>Huom!</strong> Ohjelmasi rakenne on täysin vapaa. Testaamme vain että <code>Paaohjelma</code> luokan <code>main</code>-metodi toimii kuten tässä on kuvailtu. Hyödyt tehtävässä todennäköisesti ongelma-aluetta sopivasti kuvaavista luokista.
+  </p>
+
+<% end %>
+
+
+
 ...
 
 

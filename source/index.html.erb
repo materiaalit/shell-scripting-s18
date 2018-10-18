@@ -1,472 +1,131 @@
 ---
-  title: Johdanto
+  title: Introduction
 ---
 
 <% partial 'partials/material_heading' do %>
-  Yleistä
+  Introduction
 <% end %>
 
 
 <p>
-  Tämä materiaali on tarkoitettu syksyn 2018 kursseille Ohjelmoinnin perusteet (TKT10002) ja Ohjelmoinnin jatkokurssi (TKT10003). Materiaalin osat 1-7 liittyvät kurssiin ohjelmoinnin perusteet ja osat 8-14 kurssiin ohjelmoinnin jatkokurssi.
+This material is intended for the fall 2018 course of Shell Scripting (CSM13501).
 </p>
 
 <p>
-  Tämän sivun ylälaidassa on linkit materiaalin osiin. Osia lisätään kurssin edetessä.
+The material is divided into five parts and you can find the links to the parts from the page header. 
 </p>
 
 <p>
-  Kurssilla ei oleteta aiempaa ohjelmointikokemusta. Osallistumista varten tarvitset tietokoneen sekä mahdollisuuden kurssilla käytettävien ohjelmistojen asentamiseen. Tehtäviä voi tehdä myös Kumpulan kampuksella sijaitsevilla koneilla, jolloin omaa tietokonetta ei tarvita.
+On the course we expect some programming skills (such as C). In order to participate you will need a computer with Linux installed or on a virtual machine. With Mac you might notice some small differences, such as "find -type f -not -path [...]" and "find ./ -type f -note -path [...]". These both work on Linux but only the latter one in Mac as on linux the path is optional and not in Mac. You can use the computer clas rooms in Kumpula, for example B221 in Exactum.
 </p>
 
 <p>
-  Kurssien oletettu työkuorma on noin 10-20 tuntia viikkoa kohden. Varaa kurssin tekemiseen aikaa.
+The intended course load is going to be 10-20 hours per week. The first parts are easier and as you advance the tasks become harder. Note, that the tasks may depend on the earlier tasks on earlier weeks. Reserve time to complete the tasks. 
 </p>
 
 
 <% partial 'partials/material_sub_heading' do %>
-  Osaamistavoitteet
+  Content
 <% end %>
 
 <p>
-  Kursseilla opitaan perustaidot ohjelmoinnista Java-kielellä.
+The course is about serious BASH scripting and using the traditional GNU command line tools (such as cat cut tr grep find etc). This course is meant to deepen the understanding of the Linux terminal.
+
+The tasks are based on the bash command processor but most of the tasks can be done with alternatives such as bourne shell.
+
+The techniques taught on the course are very useful for the empirical experimentation in post-graduate studies (at least for CS).
+
+NOTE. The course is not about fundamentals of Linux. Whatever that would be, digging into kernel and compiling drivers.
+
+In this sense, the course name can be explained as follows. It's "UNIX fundamentals", but UNIX is registered trademark and whatnot, so we were scared to use that name. UNIX has a philosophy: "small programs that can be strung together through a command line interpreter using pipes". That can is one fundamental of UNIX, and that's what we will be doing: combining the small programs into greatness. In this process, BASH is just a tool we choose to use.
+
+So if you think you're entering a course about Linux administration, you're not. There's another course for that.
 </p>
-
-<table class="table">
-  <tr>
-    <th>
-
-    </th>
-    <th>
-      Ohjelmoinnin perusteet
-    </th>
-  </tr>
-
-  <tr>
-    <td>
-      Osa
-    </td>
-    <td>
-      Osaamistavoitteet
-    </td>
-  </tr>
-  <tr>
-    <td>
-      1
-    </td>
-    <td>
-      Osaat kirjoittaa ohjelmia, jotka lukevat käyttäjältä syötettä ja tekevät laskentaa syötteen perusteella. Tunnet käsitteet muuttuja, ehtolause ja toistolause, ja osaat käyttää näitä ohjelmissasi.
-    </td>
-  </tr>
-  <tr>
-    <td>
-      2
-    </td>
-    <td>
-      Tunnet muutamia osaongelmia sekä niihin liittyviä ratkaisumalleja. Tunnet loogiset operaatiot ja, tai ja ei ja osaat käyttää niitä ehto- ja toistolauseissa. Tunnet käsitteet metodi, metodin parametri, metodin palautusarvo ja ohjelman kutsupino. Osaat luoda metodeja ja ymmärrät miten ohjelman suoritus etenee kun metodia kutsutaan ja toisaalta kun metodikutsusta palataan.
-    </td>
-  </tr>
-  <tr>
-    <td>
-      3
-    </td>
-    <td>
-      Tiedät lähdekoodin kommentointitapoja ja ymmärrät miten muuttujien ja metodien nimentä vaikuttaa ohjelman ymmärrettävyyteen. Tunnet lista- ja taulukkorakenteen ja osaat käyttää niitä osana ohjelmia. Osaat käydä listan ja taulukon läpi while-toistolausetta ja indeksimuuttujaa käyttäen sekä for-each -toistolausetta käyttäen. Tunnet merkkijonoon liittyviä metodeja ja osaat pilkkoa merkkijonon pienempiin osiin.
-    </td>
-  </tr>
-  <tr>
-    <td>
-      4
-    </td>
-    <td>
-      Tunnet käsitteet tiedosto ja tiedostojärjestelmä ja osaat lukea merkkijonomuotoista tietoa tiedostosta. Tiedät mitä olio-ohjelmointi tarkoittaa. Tunnet olio-ohjelmointiin liittyvät keskeiset käsitteet kuten luokka ja olio. Osaat luoda luokkia ja olioita sekä käyttää niitä osana toteuttamiasi ohjelmia.
-    </td>
-  </tr>
-  <tr>
-    <td>
-      5
-    </td>
-    <td>
-      Tiedät mitä alkeis- ja viittaustyyppiset muuttujat ovat ja ymmärrät miten niiden toiminta eroaa toisistaan (muuttujan arvon asetus, metodin parametrina käyttö). Osaat luoda luokkaan useita konstruktoreja sekä useita samannimisiä metodeja. Osaat vertailla olioiden samankaltaisuutta sekä määritellä samankaltaisuuden vertailuun käytettävän metodin. Osaat määritellä luokkaan viittaustyyppisiä oliomuuttujia, käyttää olioita metodin paluuarvona, sekä käyttää listoja oliomuuttujina.
-    </td>
-  </tr>
-  <tr>
-    <td>
-      6
-    </td>
-    <td>
-      Ymmärrät staattisten ja ei-staattisten metodien erot. Tunnet hajautustaulun ja osaat käsitellä hajautustaulussa olevaa tietoa. Osaat käyttää olioita hajautustaulun arvona ja tiedät miten oliot toimivat hajautustaulun avaimena. Osaat ryhmitellä tietoa hajautustaulun avulla ja osaat käyttää listaa hajautustaulun arvona. Osaat käyttää olioita sekä tiedon esittämiseen että ohjelman jakamiseen useampaan vastuualueeseen (tekstikäyttöliittymä, sovelluslogiikka).
-    </td>
-  </tr>
-  <tr>
-    <td>
-      7
-    </td>
-    <td>
-      Tietää mitä käsite algoritmi tarkoittaa, ja tuntee ainakin yhden tiedon järjestämiseen käytettävän algoritmin sekä yhden tiedon hakemiseen käytettävän algoritmin. Ymmärtää ohjelman suorituksen lineaarisena ja deterministisenä prosessina, ja osaa kuvata ohjelman suoritusta vuokaavion avulla. Tietää mistä yksikkötestauksessa on kyse ja osaa kirjoittaa olion metodien toimintaa testaavia yksikkötestejä, sekä tuntee testivetoisen ohjelmistokehityksen perusajatuksen.
-    </td>
-  </tr>
-
-  <tr>
-    <th>
-
-    </th>
-    <th>
-      Ohjelmoinnin jatkokurssi
-    </th>
-  </tr>
-
-  <tr>
-    <td>
-      Osa
-    </td>
-    <td>
-      Osaamistavoitteet
-    </td>
-  </tr>
-  <tr>
-    <td>
-      8
-    </td>
-    <td>
-      Tuntee luokkaakaavioiden merkintätavan ja luo luokkia luokkakaavion perusteella. Tuntee olio-ohjelmoinnin periaatteet. Tutustuu Javan luokkien rakenteeseen ja ymmärtää miksi jokaisella oliolla on metodit toString, equals ja hashCode. Tietää em. metodien käyttökohteet. Tuntee käsitteen rajapinta ja osaa luoda luokan, joka toteuttaa annetun rajapinnan. Tietää miten rajapinnat merkitään luokkakaavioon.
-    </td>
-  </tr>
-  <tr>
-    <td>
-      9
-    </td>
-    <td>
-      Osaa luoda luokkia, jotka periytyvät toisesta luokasta. Ymmärtää perinnän hyödyt ja osaa toisaalta esittää tapauksia, joihin perintä ei sovi. Tietää miten abstraktit luokat toimivat. Tietää miten perintä merkitään luokkakaavioon. Tuntee käsitteen perintähierarkia.
-    </td>
-  </tr>
-  <tr>
-    <td>
-      10
-    </td>
-    <td>
-      Ymmärtää käsitteen pakkaus ja osaa hyödyntää pakkauksia ohjelman jäsentelyssä. Tuntee Javan erityyppiset poikkeukset ja luo ohjelmia, jotka varautuvat poikkeuksiin. Tuntee Javan omia järjestämiseen tarkoitettuja apuvälineitä ja tuntee rajapinnan Comparable ja hyödyntää sitä olioiden järjestämisessä.
-    </td>
-  </tr>
-  <tr>
-    <td>
-      11
-    </td>
-    <td>
-      Käsittelee tietokokoelmia (lista, hajautustaulun avaimet, hajautustaulun arvot, hajautustaulun avain-arvo -parit) virtana. Muuntaa virran arvoja toiseksi (map) ja rajaa arvoja annettujen sääntöjen perusteella (filter). Tuntee käsitteen lambda-lauseke ja tietää miten virran metodeille annetaan parametrina lambda-lauseke.
-    </td>
-  </tr>
-  <tr>
-    <td>
-      12
-    </td>
-    <td>
-      Tietää miten paljon käytetyt ArrayList ja HashMap toimivat. Tuntee käsitteet säännöllinen lauseke, lueteltu tyyppi, ja iteraattori, ja hyödyntää näitä osana ohjelmia. Tutustuu käsiteanalyysiin.
-    </td>
-  </tr>
-  <tr>
-    <td>
-      13
-    </td>
-    <td>
-      Tutustuu graafisten käyttöliittymien ohjelmointiin. Tuntee muutamia käyttöliittymäkomponentteja, käyttöliittymäkomponenttien asettelun mekanismeja, sekä osaa käsitellä käyttöliittymän tapahtumia. Osaa tehdä käyttöliittymiä, jotka sisältävät useamman näkymän (esimerkiksi kirjautumisnäkymä, tiedon listaukseen käytettävä näkymä, tiedon muokkaukseen käytettävä näkymä). Tuntee erilaisia kaavioita (viivakaavio, pylväskaavio).
-    </td>
-  </tr>
-  <tr>
-    <td>
-      14
-    </td>
-    <td>
-      Osaa piirtää graafisen käyttöliittymän avulla. Osaa näyttää kuvia sekä soittaa äänitiedostoja. Luo suuremman ohjelman esimerkkiä noudattaen. Osaa jakaa ohjelman muille. Tietää ohjelmoinnin jatkokurssin jälkeen otettavia kursseja.
-    </td>
-  </tr>
-</table>
-
 
 <% partial 'partials/material_sub_heading' do %>
-  Työskentelytavat ja aikataulu
+  Working and schedule
 <% end %>
 
 <p>
-  Kurssilla on viikoittaiset luennot tiistaisin klo 10:15 Kumpulan Exactumin salissa A111. Luentojen lisäksi Kumpulassa järjestetään pajaohjausta tehtävien tekemiseen seuraavasti:
-</p>
-
-<ul>
-  <li>Maanantaisin (ei 3.9.) klo 12-18 salissa BK107.</li>
-  <li>Keskiviikkoisin klo 10-16 salissa BK107.</li>
-  <li>Perjantaisin klo 12-16 salissa B221.</li>
-</ul>
-
-<p>
-  Kurssin pääpaino on viikoittain tehtävissä tehtävissä. Kurssin tehtävillä on viikoittainen deadline maanantaisin kello 23:59. Täysiin tehtäväpisteisiin tähdättäessä ensimmäisen osan tehtävät tulee olla palautettuna 10.9. klo 23:59 mennessä. Toisen osan tehtävät tulee olla palautettuna 17.9. klo 23:59 mennessä jne.
-</p>
-
-<p>
-  Tehtävien palauttaminen myöhässä on mahdollista neljän päivän ajan tehtävien alkuperäisestä deadlinestä, eli ensimmäisen osan tehtäviä voi palauttaa myöhäispalautuksina 14.9. klo 23:59 asti. Toisen osan tehtäviä voi palauttaa myöhäispalautuksina 21.9. klo 23:59 asti jne. Myöhässä palautetut tehtävät ovat kurssin arvostelussa 75 % arvoisia niiden alkuperäisestä pistemäärästä.
+The plan is to start doing each week's exercises at home, and then come to PAJA for asking questions about where you're stuck. PAJA is on *TBC (Fridays 10-14 @ B221)* That's where you ask questions about hard stuff. 
+The course does not have lectures. 
 </p>
 
 <% partial 'partials/material_sub_sub_heading' do %>
-  Tukiväylät
+  Materials
 <% end %>
 
 <p>
-  Pajaohjaus on kurssin ensisijainen tukimuoto. Pajaohjauksen lisäksi kurssin tehtävien tekemiseen voi kysyä apua sekä kurssiin liittyvän Moodlen keskustelualueella (osoite Moodleen on <a href="https://moodle.helsinki.fi/course/view.php?id=30111" target="_blank">https://moodle.helsinki.fi/course/view.php?id=30111</a>) että verkossa olevalta keskustelukanavalta.
+Each assignment has its own preparatory material. Try to do the tasks in the order they are given.
 </p>
-
-<p>
-  Verkossa olevaan telegram-ryhmään <code>ohjelmointi_s18</code> pääsee helpoiten ylälaidassa olevan "Chat"-linkin kautta tai mobiilisovelluksellasi (etsi ryhmä nimeltä <code>ohjelmointi_s18</code> ja liity sinne).
-</p>
-
-<p>
-  Huomaathan, että kanavan osallistujat ovat kanssaopiskelijoita ja kurssin aiemmin tehneitä opiskelijoita. Kanavan toiminta perustuu vapaaehtoisuuteen.
-</p>
-
-<p>
-  Kurssin ohjaajat käyvät vastaamassa Moodlessa oleviin kysymyksiin muutamana päivänä viikossa.
-</p>
-
 
 <% partial 'partials/material_sub_sub_heading' do %>
-  Kurssimateriaalin lukeminen
-<% end %>
-
-
-<p>
-  Lue kurssimateriaalia siten, että teet samalla itse kaikki lukemasi esimerkit. Esimerkkeihin kannattaa tehdä pieniä muutoksia ja tarkkailla, miten muutokset vaikuttavat ohjelman toimintaan. Äkkiseltään voisi luulla, että esimerkkien tekeminen ja muokkaaminen hidastaa opiskelua. Tämä ei kuitenkaan pidä paikkansa.
-</p>
-
-<p>
-  Proseduraalisten taitojen kuten ohjelmoinnin oppiminen perustuu oleellisesti aktiiviseen tekemiseen ja rutiinin kasvattamiseen. Esimerkkien ja erityisesti erilaisten omien kokeilujen tekeminen on parhaita tapoja "sisäistää" kurssin aihepiiri.
-</p>
-
-<p>
-  Pyri tekemään tai ainakin yrittämään tehtäviä sitä mukaa kuin luet kurssimateriaalia. Jos et osaa heti tehdä jotain tehtävää, älä masennu, vaan kysy neuvoa tehtävän tekemiseen. Haastavimpia tehtäviä kannattaa tehdä useampaan otteeseen siten, että tehtävien uudelleen tekemisen välillä pitää muutaman tunnin tai päivän tauon.
-</p>
-
-<p>
-  Kurssimateriaalia ei ole tarkoitettu vain kertaalleen luettavaksi. Joudut varmasti myöhemmin palaamaan jo aiemmin lukemiisi kohtiin tai aiemmin tekemiisi tehtäviin. Kurssimateriaalin teksti ei myöskään sisällä kaikkea oleellista ohjelmointiin liittyvää. Itse asiassa ei ole olemassa kirjaa josta löytyisi kaikki oleellinen. Joudut joka tapauksessa ohjelmoijan urallasi etsimään tietoa myös omatoimisesti. Kurssin harjoitukset sisältävät jo jonkun verran ohjeita, mistä suunnista ja miten hyödyllistä tietoa on mahdollista löytää.
-</p>
-
-
-
-<% partial 'partials/material_sub_sub_heading' do %>
-  Tehtävätyypit ja tehtävien tekeminen
+  Assignement types and grading
 <% end %>
 
 <p>
-  Kurssin tehtävät on upotettu osaksi kurssimateriaalia. Kurssitehtävät sisältävät ohjelmointitehtäviä (kymmeniä osaa kohden), monivalintatehtäviä, selitystehtäviä (muutamia per osa), selitystehtävien vertaisarviointia (muutamia per osa) sekä tehtävien keksimistehtäviä. Tehtävät palautetaan kurssilla käytössä olevan Test My Code -ympäristön kautta sekä kurssimateriaalin kautta.
-</p>
-
-
-<% partial 'partials/material_sub_sub_heading' do %>
-  Yhteistyö
-<% end %>
-
-<p>
-  Hyvä yhteistyö edesauttaa jokaisen oppimista ja parantaa oppimistuloksia. Yhteistyö ja avun kysyminen on kurssin tehtäviä tehdessä sallittua ja suositeltavaa. Jos teet tehtäviä yhdessä muiden kanssa, sinun tulee kuitenkin tehdä ja palauttaa omat ratkaisusi itse.
+The course tasks are embedded as part of the course material. The tasks include shell scripting and multiple choice questions. The tasks are returned via the Test My Code environment.
 </p>
 
 <p>
-  Hyvä ohjesääntö yhteistyöhön on ns. <a href="http://courses.cs.washington.edu/courses/cse100/99au/syllabus.htm#OTHER" target="_blank" rel="noopener">Gilligan's Island -sääntö</a>:
-</p>
-
-<p>
-  <em>
-
-    <strong>The Gilligan's Island Rule</strong>: You are free to meet with fellow students(s) and discuss an assignment with them. Writing on a board or shared piece of paper during the meeting is acceptable; however, you should not take any written (electronic or otherwise) record away from the meeting. Everything that you derive from the collaboration should be in your head. After the meeting, engage in at least a half-hour of mind-numbing activity (like watching an episode of Gilligan's Island), before starting to work on the assignment. This will assure that you are able to reconstruct what you learned from the meeting by yourself.
-
-  </em>
-</p>
-
-<p>
-  <em>
-    Kokeessa yhteistyö ei ole sallittua.
-  </em>
-</p>
-
-
-<% partial 'partials/material_sub_heading' do %>
-  Opintovilpistä
-<% end %>
-
-<p>
-  Kurssilla seurataan Helsingin yliopiston opintokäytäntöjä. Plagiarismi ja opintovilppi, eli esimerkiksi netissä olevien tai kaverilta saatujen vastausten kopiointi ja niiden palauttaminen omana työnä on kiellettyä.
-</p>
-
-<p>
-  Todettu opintovilppi johtaa kurssisuorituksen hylkäämiseen ja toistuva opintovilppi voi johtaa opinto-oikeuden määräaikaiseen menettämiseen.  Lue lisää osoitteesta <a href="http://blogs.helsinki.fi/alakopsaa/opiskelijalle/"  target="_blank" >http://blogs.helsinki.fi/alakopsaa/opiskelijalle/</a>.
-</p>
-
-<%= partial 'partials/quiz', locals: { id: '587bc5f11b527d0004a7971c' } %>
-
-
-
-<% partial 'partials/material_sub_heading' do %>
-  Arvostelu
-<% end %>
-
-<p>
-  Opintojakson arvostelu perustuu harjoitustehtäviin sekä kurssin lopussa järjestettävään tenttiin. Osallistuakseen kurssin tenttiin, opiskelijan tulee tehdä kurssin jokaisen viikon tehtävistä vähintään 75 %. Kurssin arvosana muodostuu seuraavasti:
+The grading of the course is either passed or failed. The number of course credits you get is determined by the amount of tasks completed successfully as follows:
 </p>
 
 <table class="table">
   <tr>
     <td>
-      Arvosana 1
+      2 credits
     </td>
     <td>
-      Vähintään 75 % jokaisen osan tehtäväpisteistä ja vähintään 50 % koepisteistä.
-    </td>
-  </tr>
-  <tr>
-    <td>
-      Arvosana 2
-    </td>
-    <td>
-      Vähintään 75 % jokaisen osan tehtäväpisteistä ja vähintään 60 % koepisteistä.
+      Means 4/6 from the tasks done (all the tasks for the first three course parts)
     </td>
   </tr>
   <tr>
     <td>
-      Arvosana 3
+      3 credits
     </td>
     <td>
-      Vähintään 75 % jokaisen osan tehtäväpisteistä ja vähintään 70 % koepisteistä.
-    </td>
-  </tr>
-  <tr>
-    <td>
-      Arvosana 4
-    </td>
-    <td>
-      Vähintään 75 % jokaisen osan tehtäväpisteistä ja vähintään 80 % koepisteistä.
+      Means 5/6 from the tasks done (all the tasks for the first four course parts)
     </td>
   </tr>
   <tr>
     <td>
-      Arvosana 5
+      4 credits
     </td>
     <td>
-      Vähintään 90 % jokaisen osan tehtäväpisteistä ja vähintään 90 % koepisteistä.
+      Means 6/6 from the tasks done (all the tasks for the five course parts)
     </td>
   </tr>
 </table>
 
-<p>
-  Tehtäväpisteet lasketaan tehtävätyyppikohtaisesti. Ohjelmointitehtävien kirjanpito löytyy TMC-järjestelmästä, johon voi kirjautua osoitteessa <a href="https://tmc.mooc.fi/org/hy" target="_blank">https://tmc.mooc.fi/org/hy</a>. Muiden tehtävien kirjanpito on osana tätä materiaalia. Yhdistämme kurssin edetessä kaikkien tehtävien kirjanpidon materiaaliin.
-</p>
-
-
-
 <% partial 'partials/material_sub_heading' do %>
-  Kurssien kokeet
+  Course exam
 <% end %>
 
 <p>
-  Kurssin koe järjestetään lokakuun koeviikolla. Kokeesta järjestetään kaksi uusintaa. Ensimmäinen järjestetään marraskuussa ja toinen joulukuussa.
+The course does not have an exam.
 </p>
-
-<p>
-  Kurssin voi suorittaa myös erilliskokeella, johon saa osallistua vaikkei ole tehnyt kurssiin kuuluvia tehtäviä. Erilliskoe tehdään kynällä ja paperilla yleisissä tenttitilaisuuksissa. Erilliskokeeseen tulee ilmoittautua WebOodissa viimeistään kymmenen päivää ennen erilliskoetta. Erilliskoeaikataulun löydät osoitteesta <a href="https://www.cs.helsinki.fi/node/463" target="_blank">https://www.cs.helsinki.fi/node/463</a>.
-</p>
-
 
 <% partial 'partials/material_heading' do %>
-  Tunnukset ja työvälineet
+  User account for TMC
 <% end %>
 
 <p>
-  Kurssilla käytetään Test My Code (TMC) -järjestelmää tehtävien automaattiseen arviointiin ja palauttamiseen. Tarvitset tunnukset kyseiseen järjestelmään. Tämän lisäksi tarvitset koneellesi Java-ohjelmien kehittämiseen tarkoitetun Javan kahdeksannen version.
-</p>
+On the course we use the Test My Code (TMC) -environment for returning automatic checking of tasks. You need the credentials for this system from<a href="https://tmc.mooc.fi/user/new">here</a>.                 </p>
 
 <p>
-  Ohjeistus Javan asentamiseen, TMC-järjestelmän asentamiseen, käyttäjätunnusten luomiseen sekä ensimmäisen kurssitehtävän tekemiseen löydät osoitteesta <a href="https://materiaalit.github.io/tmc-asennus/netbeans/" target="_blank">https://materiaalit.github.io/tmc-asennus/netbeans/</a>.
+Once you have created a user account you can login to the material from the right upper corner.
 </p>
-
-<div class="text-center text-xs-center">
-  <p>
-    <a class="btn btn-success btn-xs" href="https://materiaalit.github.io/tmc-asennus/netbeans/" target="_blank">
-      Ohjeisiin!
-    </a>
-  </p>
-</div>
-
-
-<p>
-  Kun olet luonut käyttäjätunnuksen edellä kuvattuja ohjeita seuraten, voit kirjautua tähän materiaaliin materiaalin oikeassa ylälaidassa olevan "Kirjaudu sisään"-napin kautta.
-</p>
-
-<p>
-  Huomaathan, että kurssin työvälineet löytyvät valmiiksi asennettuina Kumpulan kampuksen Exactumin mikroluokista B221 ja BK107. Ohjelma löytyy nimellä "TMCBeans".
-</p>
-
-
 
 <% partial 'partials/material_heading' do %>
-  Analytiikkadatan keräämisestä ja kurssilla tehtävästä tutkimuksesta
-<% end %>
-
-<% partial 'partials/material_sub_heading' do %>
-  Analytiikkadatan kerääminen ja arvostelu
+  Course material and licence
 <% end %>
 
 <p>
-  Kurssin aikana tehdyistä tehtävistä kerätään tietoa. Kerätty tieto sisältää materiaalissa olevien kyselyiden vastauksia, osittaisen ohjelmointitehtävien ratkaisuprosessin, sekä kurssimateriaalin käyttöä. Tallennettu tieto sisältää henkilökohtaisen tunnisteen, jonka perusteella ei voida suoraan päätellä henkilöllisyyttäsi. Tieto ei esimerkiksi siis sisällä nimeäsi tai sähköpostiosoitettasi.
+The course material was originally created by Mikko Pervilä. The following persons have made modifications/additions over the years Mikko Leino, Samu Varjonen, Julien Mineraud. The technology used to implement this course is being researched and developed by the <a href="https://www.helsinki.fi/en/researchgroups/data-driven-education" target="_blank" rel="noopener">Agile Education Research</a> group at University of Helsinki. 
 </p>
 
 <p>
-  Mikäli käytät TMC:stä vanhempaa versiota (pienempi kuin 1.1.14) Varmista että TMC:n asetuksissa (Valikko TMC -> Settings) kohdassa "Send snapshots of your progress for study" on ruksi.  MOOC-suorituksia tai Helsingin yliopiston avoimen yliopiston suorituksia ei arvostella ilman tätä. Uudemmissa versiossa valinta on automaattisesti päällä.
+This material is released under Creative Commons <a href="https://creativecommons.org/licenses/by-nc-sa/2.0/">BY-NC-SA</a>.
 </p>
 
-<p>
-  Jos olet opiskelijana Helsingin yliopistolla ja et halua että työstämistäsi tehtävistä kerätään ajoittaista dataa kurssiarvostelua varten, kurssin voi suorittaa Kumpulassa järjestettävällä erilliskokeella. Analytiikkadataa kerätään vain kurssiin liittyvästä toiminnasta, ei esimerkiksi muista ohjelmointiprojekteistasi tai muuten koneeltasi.
-</p>
-
-
-<% partial 'partials/material_sub_heading' do %>
-  Kurssilla tehtävästä tutkimuksesta
-<% end %>
-
-<p>
-  Kurssilla tehdään oppimiseen liittyvää tutkimusta. Tällä tutkimuksella on useampia tavoitteita: (1) luoda oppimateriaali, joka ottaa yksilölliset erot huomioon ja reagoi tarvittaessa tarjoten kohdennetumpaa oppisisältöä, (2) kehittää digitaalisissa ympäristöissä tapahtuvaan oppimiseen liittyvää ymmärrystä ja tietoa, sekä (3) tukea tutkimustiedon kautta muita oppimateriaalien kehittäjiä ja oppimisen tutkijoita. Tämä johtaa luonnollisesti myös parempaan oppimiskokemukseen opiskelijoille.
-</p>
-
-<p>
-  Tällaisesta oppimisanalytiikaksi kutsutusta tutkimuksesta kiinnostuneiden kannattaa tutustua esimerkiksi artikkeliin <a href="https://dl.acm.org/citation.cfm?id=2858798" target="_blank">Educational Data Mining and Learning Analytics in Programming: Literature Review and Case Studies</a>.
-</p>
-
-<p>
-  Tutkimusdatan hallinnasta vastaa Helsingin yliopiston tietojenkäsittelytieteen laitoksen Agile Education Research -ryhmän Arto Hellas. Anonymisoimattomaan tutkimusdataan eivät pääse käsiksi muut tutkijat. Voit myös pyytää milloin tahansa sinusta kerätyn datan poistamista lähettämällä sähköpostin osoitteeseen arto.hellas@cs.helsinki.fi
-</p>
-
-<p>
-  Työskentelystä kerättyä tietoa käytetään tutkimuksessa. Kerätty tieto sisältää tietoa oppimateriaalien käytöstä, kurssitehtävien tekemisestä sekä kokeissa pärjäämisestä. Tutkimustuloksista ei pystytä tunnistamaan yksittäisiä opiskelijoita. Jos et osallistu tutkimukseen, siitä ei tule minkäänlaisia seuraamuksia.
-</p>
-
-<%= partial 'partials/quiz', locals: { id: '5a57bcce574f0b000439a32a' } %>
-
-
-<% partial 'partials/hint', locals: { name: 'Sitten materiaaliin...' } do %>
-
-  <p>
-    Löydät tämän sivun ylälaidasta linkin "Osa 1", jolla pääset ensimmäiseen osaan käsiksi. Siirtyminen onnistuu myös <%= link_to 'tästä', 'part1.html'%> painamalla.
-  </p>
-
-<% end %>
-
-
-<% partial 'partials/material_heading' do %>
-  Kurssimateriaalin tekijät ja lisenssi
-<% end %>
-
-<p>
-  Kurssimateriaalin ovat tehneet Arto Hellas (né Vihavainen) ja Matti Luukkainen. Kurssin sisältöön ovat vaikuttaneet myös Matti Paksula, Antti Laaksonen, Pekka Mikkola, Juhana Laurinharju, Martin Pärtel, Joel Kaasinen ja Mikael Nousiainen. Kurssilla käytettyä teknologiaa tutkii ja kehittää Helsingin yliopiston <a href="https://www.helsinki.fi/en/researchgroups/data-driven-education" target="_blank" rel="noopener">Agile Education Research</a> -tutkimusryhmä.
-</p>
-
-<p>
-  Tämä materiaali on lisensoitu Creative Commons BY-NC-SA-lisenssillä, joten voit käyttää ja levittää sitä vapaasti, kunhan alkuperäisten tekijöiden nimiä ei poisteta. Jos teet muutoksia materiaaliin ja haluat levittää muunneltua versiota, se täytyy lisensoida samalla lisenssillä. Materiaalien käyttö kaupalliseen tarkoitukseen on ilman erillistä lupaa kielletty.
-</p>
-
-<p>
-  Voit osallistua kurssimateriaalin parantamiseen myös itse. Jokaisen sivun alalaidassa on linkit, joilla pääset ehdottamaan muutoksia. Muutosten ehdottaminen vaatii <a href="https://github.com/" target="_blank">Github</a>-tunnuksen.
-</p>
